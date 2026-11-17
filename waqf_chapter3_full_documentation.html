@@ -1,0 +1,2092 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مخططات الفصل الثالث: المنصة الرقمية لإدارة وحصر الممتلكات الوقفية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1e3a8a;
+    --accent: #0d9488;
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --bg-light: #f8fafc;
+    --border: #e2e8f0;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Cairo', 'Noto Sans Arabic', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.7;
+    padding: 24px;
+  }
+  .container { max-width: 1400px; margin: 0 auto; }
+  header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    color: #ffffff;
+    padding: 35px 25px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.2);
+  }
+  header h1 { font-size: 26px; margin-bottom: 8px; font-weight: 800; }
+  header p { font-size: 15px; color: #94a3b8; max-width: 800px; margin: 0 auto; }
+  
+  .badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 5px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .nav-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+  .tab-btn {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .tab-btn:hover { background: #f1f5f9; color: var(--primary); }
+  .tab-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
+  }
+
+  .diagram-section {
+    display: none;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    padding: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px;
+  }
+  .diagram-section.active { display: block; }
+
+  .section-header {
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+  }
+  .section-header h2 { font-size: 20px; color: var(--primary); }
+
+  .svg-viewport {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+    overflow: auto;
+    max-height: 750px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+  }
+  .svg-viewport svg {
+    width: 100%;
+    height: auto;
+    min-width: 900px;
+    display: block;
+  }
+
+  .academic-text {
+    background: #f8fafc;
+    border-right: 4px solid var(--primary);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 18px;
+  }
+  .academic-text h3 { font-size: 16px; color: var(--text-dark); margin-bottom: 6px; }
+  .academic-text p { font-size: 13.5px; color: var(--text-muted); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 13px;
+  }
+  table th, table td {
+    padding: 10px 14px;
+    text-align: right;
+    border: 1px solid var(--border);
+  }
+  table th { background: #f1f5f9; color: var(--text-dark); font-weight: 700; }
+  table tr:nth-child(even) { background: #f8fafc; }
+
+  .check-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    background: #dcfce7;
+    color: #15803d;
+  }
+</style>
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.diagram-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.getElementById('btn-' + id).classList.add('active');
+  }
+</script>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>مخططات الفصل الثالث: المنصة الرقمية لإدارة وحصر الممتلكات الوقفية</h1>
+    <p>توثيق أكاديمي وهندسي متكامل لتحليل وتصميم نظم المعلومات لمشروع التخرج الجامعي</p>
+    <div class="badge-row">
+      <span class="badge">العمليات السبع الرئيسية</span>
+      <span class="badge">الجهات الخارجية الخمس</span>
+      <span class="badge">مخازن البيانات (D1-D7)</span>
+      <span class="badge">PostgreSQL & PostGIS</span>
+      <span class="badge">OCR & SHA-256</span>
+      <span class="badge">اتزان هندسي 100%</span>
+    </div>
+  </header>
+
+  <div class="nav-tabs">
+    <button id="btn-sec-context" class="tab-btn active" onclick="showTab('sec-context')">شكل (3-1): المخطط البيئي</button>
+    <button id="btn-sec-dfd0" class="tab-btn" onclick="showTab('sec-dfd0')">شكل (3-2): DFD Level 0</button>
+    <button id="btn-sec-dfd1" class="tab-btn" onclick="showTab('sec-dfd1')">شكل (3-3): DFD Level 1</button>
+    <button id="btn-sec-dfd2" class="tab-btn" onclick="showTab('sec-dfd2')">شكل (3-4): DFD Level 2 (معالجة OCR)</button>
+    <button id="btn-sec-erd" class="tab-btn" onclick="showTab('sec-erd')">شكل (3-5): مخطط ERD</button>
+    <button id="btn-sec-matrix" class="tab-btn" onclick="showTab('sec-matrix')">مصفوفة الاتزان والمراجعة</button>
+  </div>
+
+  <!-- 1. CONTEXT -->
+  <div id="sec-context" class="diagram-section active">
+    <div class="section-header">
+      <h2>شكل (3-1): المخطط البيئي للنظام (Context Diagram)</h2>
+      <p style="color:#64748b; font-size:13px;">تحديد حدود النظام والعملية المركزية (0) وتدفقات الجهات الخارجية الخمس</p>
+    </div>
+    <div class="svg-viewport">
+      
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1050" width="1600" height="1050" style="background-color: #ffffff; font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadow-proc" x="-10%" y="-10%" width="120%" height="120%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#1e3a8a" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arr-in" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arr-out" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- Title Header Banner -->
+  <rect x="50" y="30" width="1500" height="70" rx="12" fill="#0f172a" />
+  <text x="800" y="65" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold">شكل (3-1): المخطط البيئي للمنصة الرقمية لإدارة وحصر الممتلكات الوقفية (Context Diagram)</text>
+  <text x="800" y="88" text-anchor="middle" fill="#94a3b8" font-size="14">يوضح حدود النظام والجهات الخارجية الخمس وتدفقات البيانات المكانية، الإدارية، والمالية (مستوى 0 الأعلى)</text>
+
+  <!-- Central System Bubble -->
+  <g transform="translate(620, 410)" filter="url(#shadow-proc)">
+    <rect x="0" y="0" width="360" height="230" rx="28" fill="#f8fafc" stroke="#1e3a8a" stroke-width="4"/>
+    <rect x="0" y="0" width="360" height="55" rx="28" fill="#1e3a8a"/>
+    <rect x="0" y="30" width="360" height="25" fill="#1e3a8a"/>
+    <text x="180" y="35" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">العملية الرئيسية (0)</text>
+    <text x="180" y="95" text-anchor="middle" fill="#0f172a" font-size="20" font-weight="bold">المنصة الرقمية</text>
+    <text x="180" y="125" text-anchor="middle" fill="#0f172a" font-size="20" font-weight="bold">لإدارة وحصر الممتلكات الوقفية</text>
+    <line x1="40" y1="145" x2="320" y2="145" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="180" y="170" text-anchor="middle" fill="#475569" font-size="13">Digital Waqf Management Platform</text>
+    <text x="180" y="195" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="600">نظام إدارة وحصر وأرشفة وخدمات إلكترونية</text>
+  </g>
+
+  <!-- Entity 1: مدير النظام (Top Center) -->
+  <g transform="translate(650, 140)" filter="url(#shadow)">
+    <rect x="0" y="0" width="300" height="90" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+    <rect x="0" y="0" width="300" height="30" rx="8" fill="#334155"/>
+    <rect x="0" y="15" width="300" height="15" fill="#334155"/>
+    <text x="150" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">جهة خارجية (External Entity)</text>
+    <text x="150" y="58" text-anchor="middle" fill="#0f172a" font-size="18" font-weight="bold">مدير النظام</text>
+    <text x="150" y="78" text-anchor="middle" fill="#64748b" font-size="12">System Administrator</text>
+  </g>
+
+  <!-- Entity 2: موظف إدارة الأوقاف (Right Center) -->
+  <g transform="translate(1220, 460)" filter="url(#shadow)">
+    <rect x="0" y="0" width="310" height="110" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+    <rect x="0" y="0" width="310" height="30" rx="8" fill="#334155"/>
+    <rect x="0" y="15" width="310" height="15" fill="#334155"/>
+    <text x="155" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">جهة خارجية (External Entity)</text>
+    <text x="155" y="60" text-anchor="middle" fill="#0f172a" font-size="18" font-weight="bold">موظف إدارة الأوقاف</text>
+    <text x="155" y="82" text-anchor="middle" fill="#64748b" font-size="12">Endowment Officer / Staff</text>
+    <text x="155" y="98" text-anchor="middle" fill="#0369a1" font-size="11">الحصر الجغرافي، الأرشفة، العقود، المالية</text>
+  </g>
+
+  <!-- Entity 3: الناظر أو الوكيل (Bottom Right) -->
+  <g transform="translate(1120, 820)" filter="url(#shadow)">
+    <rect x="0" y="0" width="290" height="95" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+    <rect x="0" y="0" width="290" height="30" rx="8" fill="#334155"/>
+    <rect x="0" y="15" width="290" height="15" fill="#334155"/>
+    <text x="145" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">جهة خارجية (External Entity)</text>
+    <text x="145" y="58" text-anchor="middle" fill="#0f172a" font-size="18" font-weight="bold">الناظر أو الوكيل</text>
+    <text x="145" y="80" text-anchor="middle" fill="#64748b" font-size="12">Waqf Trustee / Agent</text>
+  </g>
+
+  <!-- Entity 4: المستفيد (Bottom Left) -->
+  <g transform="translate(190, 820)" filter="url(#shadow)">
+    <rect x="0" y="0" width="290" height="95" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+    <rect x="0" y="0" width="290" height="30" rx="8" fill="#334155"/>
+    <rect x="0" y="15" width="290" height="15" fill="#334155"/>
+    <text x="145" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">جهة خارجية (External Entity)</text>
+    <text x="145" y="58" text-anchor="middle" fill="#0f172a" font-size="18" font-weight="bold">المستفيد</text>
+    <text x="145" y="80" text-anchor="middle" fill="#64748b" font-size="12">Beneficiary</text>
+  </g>
+
+  <!-- Entity 5: المستأجر (Left Center) -->
+  <g transform="translate(70, 460)" filter="url(#shadow)">
+    <rect x="0" y="0" width="310" height="110" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2.5"/>
+    <rect x="0" y="0" width="310" height="30" rx="8" fill="#334155"/>
+    <rect x="0" y="15" width="310" height="15" fill="#334155"/>
+    <text x="155" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">جهة خارجية (External Entity)</text>
+    <text x="155" y="60" text-anchor="middle" fill="#0f172a" font-size="18" font-weight="bold">المستأجر</text>
+    <text x="155" y="82" text-anchor="middle" fill="#64748b" font-size="12">Tenant</text>
+    <text x="155" y="98" text-anchor="middle" fill="#0369a1" font-size="11">طلبات الاستئجار، متابعة العقود، سداد الإيجار</text>
+  </g>
+
+  <!-- ================= FLOWS ================= -->
+
+  <!-- 1. مدير النظام Flows -->
+  <!-- Admin -> System (Inputs) -->
+  <path d="M 750 230 L 750 410" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr-in)" />
+  <rect x="540" y="270" width="200" height="42" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+  <text x="640" y="287" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="bold">بيانات الحسابات والصلاحيات</text>
+  <text x="640" y="303" text-anchor="middle" fill="#0369a1" font-size="10">وطلبات إدارة وتفعيل المستخدمين</text>
+
+  <!-- System -> Admin (Outputs) -->
+  <path d="M 850 410 L 850 230" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr-out)" />
+  <rect x="860" y="270" width="210" height="42" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="965" y="287" text-anchor="middle" fill="#15803d" font-size="11" font-weight="bold">تقارير نشاط النظام وسجل العمليات</text>
+  <text x="965" y="303" text-anchor="middle" fill="#15803d" font-size="10">ونتائج تحديث الحسابات والصلاحيات</text>
+
+  <!-- 2. موظف إدارة الأوقاف Flows -->
+  <!-- Officer -> System (Inputs) -->
+  <path d="M 1220 500 L 980 500" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr-in)" />
+  <rect x="1000" y="452" width="200" height="44" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+  <text x="1100" y="470" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="bold">بيانات الأوقاف والأصول والحدود المكانية</text>
+  <text x="1100" y="486" text-anchor="middle" fill="#0369a1" font-size="10">ومراجعة نصوص OCR والعقود والمالية</text>
+
+  <!-- System -> Officer (Outputs) -->
+  <path d="M 980 545 L 1220 545" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr-out)" />
+  <rect x="1000" y="552" width="200" height="44" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="1100" y="570" text-anchor="middle" fill="#15803d" font-size="11" font-weight="bold">التقارير المكانية وكشوفات الاستحقاق</text>
+  <text x="1100" y="586" text-anchor="middle" fill="#15803d" font-size="10">وسندات القبض والملخصات المالية والوثائق</text>
+
+  <!-- 3. الناظر أو الوكيل Flows -->
+  <!-- Trustee -> System (Inputs) -->
+  <path d="M 1120 840 Q 940 760 900 640" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr-in)" />
+  <rect x="940" y="730" width="180" height="40" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+  <text x="1030" y="747" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="bold">استعلامات الوقف والطلبات</text>
+  <text x="1030" y="762" text-anchor="middle" fill="#0369a1" font-size="10">والوثائق التكميلية والبلاغات</text>
+
+  <!-- System -> Trustee (Outputs) -->
+  <path d="M 930 640 Q 980 780 1150 820" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr-out)" />
+  <rect x="1030" y="675" width="180" height="40" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="1120" y="692" text-anchor="middle" fill="#15803d" font-size="11" font-weight="bold">بيانات الأوقاف الموكلة وكشوفاتها</text>
+  <text x="1120" y="707" text-anchor="middle" fill="#15803d" font-size="10">وإشعارات حالة المعاملات والطلبات</text>
+
+  <!-- 4. المستفيد Flows -->
+  <!-- Beneficiary -> System (Inputs) -->
+  <path d="M 430 820 Q 600 780 670 640" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr-in)" />
+  <rect x="420" y="730" width="190" height="40" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+  <text x="515" y="747" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="bold">طلبات الاستفادة وبيانات الهوية</text>
+  <text x="515" y="762" text-anchor="middle" fill="#0369a1" font-size="10">والاستفسارات والشكاوى ومرفقاتها</text>
+
+  <!-- System -> Beneficiary (Outputs) -->
+  <path d="M 700 640 Q 640 760 460 840" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr-out)" />
+  <rect x="380" y="675" width="190" height="40" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="475" y="692" text-anchor="middle" fill="#15803d" font-size="11" font-weight="bold">إشعارات حالة الطلب والاعتماد</text>
+  <text x="475" y="707" text-anchor="middle" fill="#15803d" font-size="10">وتفاصيل الاستحقاق ومواعيد الصرف</text>
+
+  <!-- 5. المستأجر Flows -->
+  <!-- Tenant -> System (Inputs) -->
+  <path d="M 380 500 L 620 500" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr-in)" />
+  <rect x="400" y="452" width="200" height="44" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+  <text x="500" y="470" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="bold">طلبات الاستئجار وبيانات العقد</text>
+  <text x="500" y="486" text-anchor="middle" fill="#0369a1" font-size="10">وبيانات السداد والإشعارات التكميلية</text>
+
+  <!-- System -> Tenant (Outputs) -->
+  <path d="M 620 545 L 380 545" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr-out)" />
+  <rect x="400" y="552" width="200" height="44" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="500" y="570" text-anchor="middle" fill="#15803d" font-size="11" font-weight="bold">نسخة العقد وسندات القبض الإلكترونية</text>
+  <text x="500" y="586" text-anchor="middle" fill="#15803d" font-size="10">وتنبيهات مواعيد استحقاق الإيجار</text>
+
+  <!-- Legend (Bottom Center) -->
+  <g transform="translate(560, 950)">
+    <rect x="0" y="0" width="480" height="60" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="240" y="20" text-anchor="middle" fill="#475569" font-size="12" font-weight="bold">دليل الرموز وتدفق البيانات (Legend)</text>
+    <line x1="40" y1="40" x2="90" y2="40" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arr-in)"/>
+    <text x="145" y="44" text-anchor="middle" fill="#0369a1" font-size="11">تدفق بيانات داخل للنظام (Input)</text>
+    <line x1="260" y1="40" x2="310" y2="40" stroke="#059669" stroke-width="2.5" marker-end="url(#arr-out)"/>
+    <text x="385" y="44" text-anchor="middle" fill="#15803d" font-size="11">تدفق بيانات خارج من النظام (Output)</text>
+  </g>
+
+</svg>
+    </div>
+    <div class="academic-text">
+      <h3>الشرح الأكاديمي للمخطط البيئي:</h3>
+      <p>يوضح هذا المخطط الحدود الفاصلة للنظام وبيئته الخارجية؛ حيث يمثل المنصة كوحدة معالجة مركزية برقم (0)، وتتفاعل مع الجهات الخمس: مدير النظام، موظف إدارة الأوقاف، الناظر أو الوكيل، المستفيد، والمستأجر. يحقق المخطط التوازن التام لتدفقات البيانات المدخلة والمخرجة دون اتصال مباشر بين أي جهتين خارجيتين.</p>
+    </div>
+  </div>
+
+  <!-- 2. DFD 0 -->
+  <div id="sec-dfd0" class="diagram-section">
+    <div class="section-header">
+      <h2>شكل (3-2): مخطط تدفق البيانات من المستوى الصفري (DFD Level 0)</h2>
+      <p style="color:#64748b; font-size:13px;">تفكيك النظام إلى العمليات السبع ومخازن البيانات السبعة (D1-D7)</p>
+    </div>
+    <div class="svg-viewport">
+      
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 1500" width="2200" height="1500" style="background-color: #ffffff; font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-dark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#334155"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Banner Header -->
+  <rect x="60" y="30" width="2080" height="75" rx="12" fill="#0f172a" />
+  <text x="1100" y="66" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="bold">شكل (3-2): مخطط تدفق البيانات من المستوى الصفري (DFD Level 0) للمنصة الرقمية لإدارة وحصر الممتلكات الوقفية</text>
+  <text x="1100" y="90" text-anchor="middle" fill="#94a3b8" font-size="14">تفكيك النظام إلى العمليات السبع الرئيسية، مخازن البيانات السبعة (D1 - D7)، والجهات الخارجية الخمس مع الحفاظ على اتزان التدفقات</text>
+
+  <!-- ================= EXTERNAL ENTITIES (5) ================= -->
+  <!-- 1. مدير النظام (Top Right) -->
+  <g transform="translate(1780, 150)" filter="url(#shadow)">
+    <rect width="280" height="85" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="2.5"/>
+    <rect width="280" height="26" rx="6" fill="#334155"/>
+    <rect y="12" width="280" height="14" fill="#334155"/>
+    <text x="140" y="18" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">جهة خارجية (Entity)</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">مدير النظام</text>
+    <text x="140" y="74" text-anchor="middle" fill="#64748b" font-size="11">System Administrator</text>
+  </g>
+
+  <!-- 2. موظف إدارة الأوقاف (Middle Right) -->
+  <g transform="translate(1780, 520)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="2.5"/>
+    <rect width="280" height="26" rx="6" fill="#334155"/>
+    <rect y="12" width="280" height="14" fill="#334155"/>
+    <text x="140" y="18" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">جهة خارجية (Entity)</text>
+    <text x="140" y="56" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">موظف إدارة الأوقاف</text>
+    <text x="140" y="76" text-anchor="middle" fill="#64748b" font-size="11">Endowment Officer</text>
+    <text x="140" y="91" text-anchor="middle" fill="#0369a1" font-size="10">الحصر، الأرشفة، العقود، والتحصيل</text>
+  </g>
+
+  <!-- 3. الناظر أو الوكيل (Bottom Right) -->
+  <g transform="translate(1780, 1080)" filter="url(#shadow)">
+    <rect width="280" height="85" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="2.5"/>
+    <rect width="280" height="26" rx="6" fill="#334155"/>
+    <rect y="12" width="280" height="14" fill="#334155"/>
+    <text x="140" y="18" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">جهة خارجية (Entity)</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">الناظر أو الوكيل</text>
+    <text x="140" y="74" text-anchor="middle" fill="#64748b" font-size="11">Waqf Trustee / Agent</text>
+  </g>
+
+  <!-- 4. المستأجر (Top Left) -->
+  <g transform="translate(140, 520)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="2.5"/>
+    <rect width="280" height="26" rx="6" fill="#334155"/>
+    <rect y="12" width="280" height="14" fill="#334155"/>
+    <text x="140" y="18" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">جهة خارجية (Entity)</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">المستأجر</text>
+    <text x="140" y="74" text-anchor="middle" fill="#64748b" font-size="11">Tenant</text>
+    <text x="140" y="88" text-anchor="middle" fill="#0369a1" font-size="10">الاستئجار، السداد، متابعة العقود</text>
+  </g>
+
+  <!-- 5. المستفيد (Bottom Left) -->
+  <g transform="translate(140, 1080)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="2.5"/>
+    <rect width="280" height="26" rx="6" fill="#334155"/>
+    <rect y="12" width="280" height="14" fill="#334155"/>
+    <text x="140" y="18" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">جهة خارجية (Entity)</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">المستفيد</text>
+    <text x="140" y="74" text-anchor="middle" fill="#64748b" font-size="11">Beneficiary</text>
+    <text x="140" y="88" text-anchor="middle" fill="#0369a1" font-size="10">الطلبات، الاستحقاقات، الشكاوى</text>
+  </g>
+
+  <!-- ================= PROCESSES (7) ================= -->
+  <!-- Process Helper Macro -->
+  <!-- Proc 1.0: إدارة الحسابات والصلاحيات -->
+  <g transform="translate(1260, 150)" filter="url(#shadow)">
+    <rect width="260" height="110" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 244 0 A 16 16 0 0 1 260 16 L 260 36 L 0 36 Z" fill="#eff6ff"/>
+    <text x="130" y="24" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="bold">1.0</text>
+    <text x="130" y="65" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">إدارة الحسابات</text>
+    <text x="130" y="88" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">والصلاحيات</text>
+  </g>
+
+  <!-- Proc 2.0: إدارة الأوقاف والممتلكات والحصر الجغرافي -->
+  <g transform="translate(1260, 420)" filter="url(#shadow)">
+    <rect width="260" height="120" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 244 0 A 16 16 0 0 1 260 16 L 260 36 L 0 36 Z" fill="#eff6ff"/>
+    <text x="130" y="24" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="bold">2.0</text>
+    <text x="130" y="62" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">إدارة الأوقاف والممتلكات</text>
+    <text x="130" y="84" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">والحصر الجغرافي (GIS)</text>
+    <text x="130" y="105" text-anchor="middle" fill="#64748b" font-size="11">تسجيل الأصول والحدود والتعديات</text>
+  </g>
+
+  <!-- Proc 3.0: إدارة الوثائق الوقفية والأرشفة الإلكترونية -->
+  <g transform="translate(1260, 720)" filter="url(#shadow)">
+    <rect width="260" height="120" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 244 0 A 16 16 0 0 1 260 16 L 260 36 L 0 36 Z" fill="#eff6ff"/>
+    <text x="130" y="24" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="bold">3.0</text>
+    <text x="130" y="62" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">إدارة الوثائق الوقفية</text>
+    <text x="130" y="84" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">والأرشفة الإلكترونية</text>
+    <text x="130" y="105" text-anchor="middle" fill="#64748b" font-size="11">OCR ومراجعة النصوص والتدقيق</text>
+  </g>
+
+  <!-- Proc 4.0: إدارة شروط الواقفين والمستفيدين -->
+  <g transform="translate(1260, 1020)" filter="url(#shadow)">
+    <rect width="260" height="120" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 244 0 A 16 16 0 0 1 260 16 L 260 36 L 0 36 Z" fill="#eff6ff"/>
+    <text x="130" y="24" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="bold">4.0</text>
+    <text x="130" y="62" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">إدارة شروط الواقفين</text>
+    <text x="130" y="84" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">والمستفيدين</text>
+    <text x="130" y="105" text-anchor="middle" fill="#64748b" font-size="11">أوجه الصرف وحصص الاستحقاق</text>
+  </g>
+
+  <!-- Proc 5.0: إدارة العقود والإيجارات -->
+  <g transform="translate(560, 420)" filter="url(#shadow)">
+    <rect width="260" height="120" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 244 0 A 16 16 0 0 1 260 16 L 260 36 L 0 36 Z" fill="#eff6ff"/>
+    <text x="130" y="24" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="bold">5.0</text>
+    <text x="130" y="62" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">إدارة العقود</text>
+    <text x="130" y="84" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">والإيجارات</text>
+    <text x="130" y="105" text-anchor="middle" fill="#64748b" font-size="11">عقود التأجير، التجديد والتنبيهات</text>
+  </g>
+
+  <!-- Proc 6.0: إدارة المعاملات المالية والتحصيل -->
+  <g transform="translate(560, 720)" filter="url(#shadow)">
+    <rect width="260" height="120" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 244 0 A 16 16 0 0 1 260 16 L 260 36 L 0 36 Z" fill="#eff6ff"/>
+    <text x="130" y="24" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="bold">6.0</text>
+    <text x="130" y="62" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">إدارة المعاملات المالية</text>
+    <text x="130" y="84" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">والتحصيل</text>
+    <text x="130" y="105" text-anchor="middle" fill="#64748b" font-size="11">سندات القبض، الإيرادات والتقارير</text>
+  </g>
+
+  <!-- Proc 7.0: إدارة الخدمات الإلكترونية والطلبات -->
+  <g transform="translate(560, 1020)" filter="url(#shadow)">
+    <rect width="260" height="120" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 244 0 A 16 16 0 0 1 260 16 L 260 36 L 0 36 Z" fill="#eff6ff"/>
+    <text x="130" y="24" text-anchor="middle" fill="#1d4ed8" font-size="13" font-weight="bold">7.0</text>
+    <text x="130" y="62" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">إدارة الخدمات الإلكترونية</text>
+    <text x="130" y="84" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="bold">والطلبات</text>
+    <text x="130" y="105" text-anchor="middle" fill="#64748b" font-size="11">استقبال البلاغات ومعالجة الطلبات</text>
+  </g>
+
+  <!-- ================= DATA STORES (7) ================= -->
+  <!-- D1: بيانات المستخدمين والصلاحيات -->
+  <g transform="translate(930, 160)">
+    <line x1="0" y1="0" x2="210" y2="0" stroke="#b45309" stroke-width="2.5"/>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#b45309" stroke-width="2.5"/>
+    <rect x="0" y="0" width="55" height="55" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="27" y="34" text-anchor="middle" fill="#92400e" font-size="15" font-weight="bold">D1</text>
+    <text x="130" y="26" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات المستخدمين</text>
+    <text x="130" y="44" text-anchor="middle" fill="#78350f" font-size="11">والأدوار والصلاحيات</text>
+  </g>
+
+  <!-- D2: بيانات الأوقاف والممتلكات والأصول -->
+  <g transform="translate(930, 445)">
+    <line x1="0" y1="0" x2="210" y2="0" stroke="#b45309" stroke-width="2.5"/>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#b45309" stroke-width="2.5"/>
+    <rect x="0" y="0" width="55" height="55" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="27" y="34" text-anchor="middle" fill="#92400e" font-size="15" font-weight="bold">D2</text>
+    <text x="130" y="26" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات الأوقاف</text>
+    <text x="130" y="44" text-anchor="middle" fill="#78350f" font-size="11">والأصول والحصر الجغرافي</text>
+  </g>
+
+  <!-- D3: بيانات الوثائق والأرشيف -->
+  <g transform="translate(930, 745)">
+    <line x1="0" y1="0" x2="210" y2="0" stroke="#b45309" stroke-width="2.5"/>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#b45309" stroke-width="2.5"/>
+    <rect x="0" y="0" width="55" height="55" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="27" y="34" text-anchor="middle" fill="#92400e" font-size="15" font-weight="bold">D3</text>
+    <text x="130" y="26" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات الوثائق</text>
+    <text x="130" y="44" text-anchor="middle" fill="#78350f" font-size="11">والأرشيف ونصوص OCR</text>
+  </g>
+
+  <!-- D4: بيانات شروط الواقفين والمستفيدين -->
+  <g transform="translate(930, 1045)">
+    <line x1="0" y1="0" x2="210" y2="0" stroke="#b45309" stroke-width="2.5"/>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#b45309" stroke-width="2.5"/>
+    <rect x="0" y="0" width="55" height="55" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="27" y="34" text-anchor="middle" fill="#92400e" font-size="15" font-weight="bold">D4</text>
+    <text x="130" y="26" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">شروط الواقفين</text>
+    <text x="130" y="44" text-anchor="middle" fill="#78350f" font-size="11">وبيانات المستفيدين</text>
+  </g>
+
+  <!-- D5: بيانات العقود والإيجارات -->
+  <g transform="translate(930, 340)">
+    <line x1="0" y1="0" x2="210" y2="0" stroke="#b45309" stroke-width="2.5"/>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#b45309" stroke-width="2.5"/>
+    <rect x="0" y="0" width="55" height="55" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="27" y="34" text-anchor="middle" fill="#92400e" font-size="15" font-weight="bold">D5</text>
+    <text x="130" y="26" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات العقود</text>
+    <text x="130" y="44" text-anchor="middle" fill="#78350f" font-size="11">والإيجارات والتنبيهات</text>
+  </g>
+
+  <!-- D6: بيانات المعاملات المالية والتحصيل -->
+  <g transform="translate(930, 640)">
+    <line x1="0" y1="0" x2="210" y2="0" stroke="#b45309" stroke-width="2.5"/>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#b45309" stroke-width="2.5"/>
+    <rect x="0" y="0" width="55" height="55" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="27" y="34" text-anchor="middle" fill="#92400e" font-size="15" font-weight="bold">D6</text>
+    <text x="130" y="26" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">المعاملات المالية</text>
+    <text x="130" y="44" text-anchor="middle" fill="#78350f" font-size="11">وسندات القبض الإلكترونية</text>
+  </g>
+
+  <!-- D7: بيانات الخدمات والطلبات -->
+  <g transform="translate(930, 940)">
+    <line x1="0" y1="0" x2="210" y2="0" stroke="#b45309" stroke-width="2.5"/>
+    <line x1="0" y1="55" x2="210" y2="55" stroke="#b45309" stroke-width="2.5"/>
+    <rect x="0" y="0" width="55" height="55" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="27" y="34" text-anchor="middle" fill="#92400e" font-size="15" font-weight="bold">D7</text>
+    <text x="130" y="26" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات الخدمات</text>
+    <text x="130" y="44" text-anchor="middle" fill="#78350f" font-size="11">والطلبات والمرفقات</text>
+  </g>
+
+  <!-- ================= FLOWS (LEVEL 0) ================= -->
+  <!-- Admin <-> 1.0 -->
+  <path d="M 1780 180 L 1520 180" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <rect x="1540" y="155" width="220" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="1650" y="170" text-anchor="middle" fill="#1e40af" font-size="10" font-weight="bold">بيانات الحسابات وتعيين الأدوار</text>
+
+  <path d="M 1520 215 L 1780 215" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)" />
+  <rect x="1540" y="218" width="220" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="1650" y="233" text-anchor="middle" fill="#166534" font-size="10" font-weight="bold">نتائج الإدارة وسجلات النظام</text>
+
+  <!-- 1.0 <-> D1 -->
+  <path d="M 1260 180 L 1140 180" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <text x="1200" y="173" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="bold">حفظ بيانات المستخدم</text>
+  <path d="M 1140 205 L 1260 205" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)" />
+  <text x="1200" y="220" text-anchor="middle" fill="#92400e" font-size="9" font-weight="bold">استرجاع والتحقق من الصلاحيات</text>
+
+  <!-- Officer -> 2.0, 3.0, 4.0, 6.0 -->
+  <path d="M 1780 540 L 1520 480" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <rect x="1530" y="492" width="230" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="1645" y="507" text-anchor="middle" fill="#1e40af" font-size="10" font-weight="bold">بيانات الوقف، الأصل، الحدود والموقع</text>
+
+  <path d="M 1520 505 L 1780 560" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)" />
+  <rect x="1530" y="540" width="230" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="1645" y="555" text-anchor="middle" fill="#166534" font-size="10" font-weight="bold">تقارير الحصر وخرائط الأصول والمساحات</text>
+
+  <!-- Officer -> 3.0 -->
+  <path d="M 1850 620 L 1850 780 L 1520 780" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" fill="none"/>
+  <rect x="1550" y="755" width="230" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="1665" y="770" text-anchor="middle" fill="#1e40af" font-size="10" font-weight="bold">ملفات الوثائق، وتصحيح نصوص OCR</text>
+
+  <!-- 3.0 -> Officer -->
+  <path d="M 1520 805 L 1870 805 L 1870 620" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)" fill="none"/>
+  <rect x="1550" y="810" width="230" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="1665" y="825" text-anchor="middle" fill="#166534" font-size="10" font-weight="bold">نتائج الأرشفة والبحث والتدقيق</text>
+
+  <!-- 2.0 <-> D2 -->
+  <path d="M 1260 460 L 1140 460" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 1140 485 L 1260 485" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)" />
+  <text x="1200" y="450" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="bold">تخزين بيانات الأصول</text>
+
+  <!-- 3.0 <-> D3 -->
+  <path d="M 1260 760 L 1140 760" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 1140 785 L 1260 785" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)" />
+  <text x="1200" y="750" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="bold">أرشفة الوثيقة ومطابقة الهاش</text>
+
+  <!-- Inter-process: D2 -> 3.0 (Link doc to Waqf/Asset) -->
+  <path d="M 1035 500 L 1035 730 L 1260 740" stroke="#334155" stroke-dasharray="4,4" stroke-width="1.8" marker-end="url(#arr-dark)" fill="none"/>
+  <text x="1090" y="660" text-anchor="middle" fill="#475569" font-size="9">التحقق من ربط الأصل والوقف</text>
+
+  <!-- 4.0 <-> D4 -->
+  <path d="M 1260 1060 L 1140 1060" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 1140 1085 L 1260 1085" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)" />
+  <text x="1200" y="1050" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="bold">حفظ شروط الواقفين وحصصهم</text>
+
+  <!-- Trustee <-> 2.0 / 4.0 -->
+  <path d="M 1780 1110 L 1520 1080" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <rect x="1540" y="1065" width="220" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="1650" y="1080" text-anchor="middle" fill="#1e40af" font-size="10" font-weight="bold">استعلام الوقف وتحديث بيانات الشروط</text>
+
+  <path d="M 1520 1115 L 1780 1135" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)" />
+  <rect x="1540" y="1125" width="220" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="1650" y="1140" text-anchor="middle" fill="#166534" font-size="10" font-weight="bold">كشوفات استحقاق الوقف الموكل</text>
+
+  <!-- Tenant <-> 5.0 (إدارة العقود) -->
+  <path d="M 420 545 L 560 480" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <rect x="360" y="475" width="180" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="450" y="490" text-anchor="middle" fill="#1e40af" font-size="10" font-weight="bold">طلب الاستئجار وبيانات العقد</text>
+
+  <path d="M 560 515 L 420 575" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)" />
+  <rect x="360" y="565" width="180" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="450" y="580" text-anchor="middle" fill="#166534" font-size="10" font-weight="bold">بيانات العقد وتنبيهات التجديد</text>
+
+  <!-- 5.0 <-> D5 -->
+  <path d="M 820 460 L 930 380" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 930 400 L 820 480" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)" />
+
+  <!-- D2 -> 5.0 (بيانات الأصول الشاغرة للتعاقد) -->
+  <path d="M 930 465 L 820 465" stroke="#334155" stroke-dasharray="4,4" stroke-width="1.8" marker-end="url(#arr-dark)" />
+  <text x="875" y="455" text-anchor="middle" fill="#334155" font-size="9" font-weight="bold">حالة الأصل الشاغر</text>
+
+  <!-- 5.0 -> 6.0 (التزامات الإيجار والدفعات المستحقة) -->
+  <path d="M 690 540 L 690 720" stroke="#334155" stroke-width="2" marker-end="url(#arr-dark)" />
+  <rect x="610" y="620" width="160" height="22" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="690" y="635" text-anchor="middle" fill="#0f172a" font-size="9" font-weight="bold">استحقاقات الإيجار للتحصيل</text>
+
+  <!-- Tenant <-> 6.0 (السداد وسندات القبض) -->
+  <path d="M 420 600 L 560 740" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 560 770 L 420 615" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)" />
+  <rect x="360" y="680" width="180" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="450" y="695" text-anchor="middle" fill="#166534" font-size="10" font-weight="bold">إصدار سند القبض الإلكتروني</text>
+
+  <!-- 6.0 <-> D6 -->
+  <path d="M 820 760 L 930 680" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 930 700 L 820 780" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)" />
+
+  <!-- D4 -> 6.0 (تغذية بيانات المستحقين لاحتساب المبالغ) -->
+  <path d="M 930 1060 L 850 1060 L 850 820 L 820 800" stroke="#334155" stroke-dasharray="4,4" stroke-width="1.8" marker-end="url(#arr-dark)" fill="none"/>
+  <text x="890" y="910" text-anchor="middle" fill="#475569" font-size="9">كشوف الاستحقاق</text>
+
+  <!-- Beneficiary <-> 7.0 (الخدمات والطلبات) -->
+  <path d="M 420 1100 L 560 1060" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <rect x="360" y="1040" width="180" height="22" rx="4" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="450" y="1055" text-anchor="middle" fill="#1e40af" font-size="10" font-weight="bold">تقديم طلب/استفسار/شكوى</text>
+
+  <path d="M 560 1090 L 420 1130" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)" />
+  <rect x="360" y="1120" width="180" height="22" rx="4" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="450" y="1135" text-anchor="middle" fill="#166534" font-size="10" font-weight="bold">إشعار حالة الطلب والنتيجة</text>
+
+  <!-- 7.0 <-> D7 -->
+  <path d="M 820 1060 L 930 980" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)" />
+  <path d="M 930 1000 L 820 1080" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)" />
+
+  <!-- Inter-process: 7.0 -> 4.0 (طلبات الاستفادة المقبولة) -->
+  <path d="M 780 1140 L 780 1200 L 1320 1200 L 1320 1140" stroke="#334155" stroke-dasharray="4,4" stroke-width="2" marker-end="url(#arr-dark)" fill="none"/>
+  <rect x="960" y="1188" width="180" height="22" rx="4" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="1050" y="1203" text-anchor="middle" fill="#0f172a" font-size="10" font-weight="bold">اعتماد طلب المستفيد وإدراجه</text>
+
+  <!-- Legend Bottom -->
+  <g transform="translate(750, 1370)">
+    <rect width="700" height="70" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="350" y="22" text-anchor="middle" fill="#475569" font-size="13" font-weight="bold">دليل الرموز والمكونات في المخطط الصفري (DFD Level 0 Legend)</text>
+    <rect x="40" y="38" width="100" height="22" rx="11" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="90" y="53" text-anchor="middle" fill="#1e40af" font-size="10">عملية رئيسية</text>
+
+    <rect x="180" y="38" width="100" height="22" rx="4" fill="#f8fafc" stroke="#334155" stroke-width="1.5"/>
+    <text x="230" y="53" text-anchor="middle" fill="#0f172a" font-size="10">جهة خارجية</text>
+
+    <rect x="320" y="38" width="110" height="22" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+    <text x="375" y="53" text-anchor="middle" fill="#92400e" font-size="10">D# مخزن بيانات</text>
+
+    <line x1="470" y1="49" x2="520" y2="49" stroke="#2563eb" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="560" y="53" text-anchor="middle" fill="#2563eb" font-size="10">تدفق بيانات</text>
+
+    <line x1="600" y1="49" x2="650" y2="49" stroke="#334155" stroke-dasharray="4,4" stroke-width="2" marker-end="url(#arr-dark)"/>
+    <text x="670" y="53" text-anchor="middle" fill="#334155" font-size="10">تدفق بين العمليات</text>
+  </g>
+
+</svg>
+    </div>
+    <div class="academic-text">
+      <h3>الشرح الأكاديمي للمستوى الصفري:</h3>
+      <p>يقوم المخطط بتفكيك العملية الشاملة إلى العمليات السبع المعتمدة مع ربطها بمخازن البيانات السبعة ومراعاة القواعد المنهجية الصارمة: منع أي اتصال مباشر بين جهة خارجية ومخزن بيانات، منع التدفق المباشر بين مخزني بيانات، وإبراز التبادلات الوظيفية البينية الضرورية مثل إمداد إدارة العقود ببيانات الأصول الشاغرة من إدارة الأوقاف والحصر الجغرافي.</p>
+    </div>
+  </div>
+
+  <!-- 3. DFD 1 -->
+  <div id="sec-dfd1" class="diagram-section">
+    <div class="section-header">
+      <h2>شكل (3-3): مخطط تدفق البيانات من المستوى الأول (DFD Level 1)</h2>
+      <p style="color:#64748b; font-size:13px;">تفكيك العمليات السبع إلى 38 عملية فرعية مع كامل تدفقات المخازن</p>
+    </div>
+    <div class="svg-viewport">
+      
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2600 1800" width="2600" height="1800" style="background-color: #ffffff; font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;">
+  <defs>
+    <filter id="shadow-card" x="-4%" y="-4%" width="108%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.07"/>
+    </filter>
+    <marker id="m-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="m-arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="m-arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Banner -->
+  <rect x="50" y="25" width="2500" height="80" rx="12" fill="#0f172a" />
+  <text x="1300" y="65" text-anchor="middle" fill="#ffffff" font-size="25" font-weight="bold">شكل (3-3): مخطط تدفق البيانات من المستوى الأول (DFD Level 1) للمنصة الرقمية لإدارة وحصر الممتلكات الوقفية</text>
+  <text x="1300" y="90" text-anchor="middle" fill="#94a3b8" font-size="14">تفكيك العمليات السبع الرئيسية إلى 38 عملية فرعية مع توضيح تدفقات البيانات نحو مخازن البيانات السبعة والجهات الخارجية</text>
+
+  <!-- 7 Main Process Cards / Subsystems Container Grid -->
+  <!-- 
+    Layout Grid:
+    Row 1 (y=130):
+      - Block 1 (x=80, w=760, h=480): 1.0 إدارة الحسابات والصلاحيات (5 subprocesses) + D1
+      - Block 2 (x=880, w=840, h=480): 2.0 إدارة الأوقاف والممتلكات والحصر الجغرافي (8 subprocesses) + D2
+      - Block 3 (x=1760, w=760, h=480): 3.0 إدارة الوثائق الوقفية والأرشفة الإلكترونية OCR (5 subprocesses) + D3
+
+    Row 2 (y=640):
+      - Block 4 (x=80, w=760, h=480): 4.0 إدارة شروط الواقفين والمستفيدين (5 subprocesses) + D4
+      - Block 5 (x=880, w=840, h=480): 5.0 إدارة العقود والإيجارات (5 subprocesses) + D5
+      - Block 6 (x=1760, w=760, h=480): 6.0 إدارة المعاملات المالية والتحصيل (5 subprocesses) + D6
+
+    Row 3 (y=1150):
+      - Block 7 (x=880, w=840, h=460): 7.0 إدارة الخدمات الإلكترونية والطلبات (5 subprocesses) + D7
+      - External Entities Legend & Routing Panels on Left & Right
+  -->
+
+  <!-- ================= BLOCK 1: 1.0 إدارة الحسابات ================= -->
+  <g transform="translate(80, 130)" filter="url(#shadow-card)">
+    <rect width="760" height="480" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="760" height="42" rx="14" fill="#1e40af"/>
+    <rect y="20" width="760" height="22" fill="#1e40af"/>
+    <text x="380" y="27" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">العملية 1.0: إدارة الحسابات والصلاحيات (Account &amp; Permission Mgmt)</text>
+
+    <!-- Subprocesses: 1.1 to 1.5 -->
+    <!-- 1.1 -->
+    <rect x="30" y="60" width="210" height="65" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="135" y="85" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="bold">1.1 إنشاء حساب جديد</text>
+    <text x="135" y="105" text-anchor="middle" fill="#475569" font-size="10">تسجيل بيانات المستخدم والهوية</text>
+
+    <!-- 1.2 -->
+    <rect x="270" y="60" width="210" height="65" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="375" y="85" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="bold">1.2 تعديل البيانات الشخصية</text>
+    <text x="375" y="105" text-anchor="middle" fill="#475569" font-size="10">تحديث كلمة المرور ومعلومات الاتصال</text>
+
+    <!-- 1.3 -->
+    <rect x="510" y="60" width="220" height="65" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="620" y="85" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="bold">1.3 تسجيل الدخول والتحقق</text>
+    <text x="620" y="105" text-anchor="middle" fill="#475569" font-size="10">مطابقة بيانات الدخول وإصدار التوكن</text>
+
+    <!-- 1.4 -->
+    <rect x="140" y="150" width="220" height="65" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="250" y="175" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="bold">1.4 إدارة الأدوار والصلاحيات</text>
+    <text x="250" y="195" text-anchor="middle" fill="#475569" font-size="10">تعيين الأدوار وتخصيص الصلاحيات</text>
+
+    <!-- 1.5 -->
+    <rect x="400" y="150" width="220" height="65" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="510" y="175" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="bold">1.5 البحث وإدارة التفعيل</text>
+    <text x="510" y="195" text-anchor="middle" fill="#475569" font-size="10">البحث، التعطيل، وتفعيل الحسابات</text>
+
+    <!-- Store D1 -->
+    <g transform="translate(250, 260)">
+      <line x1="0" y1="0" x2="260" y2="0" stroke="#b45309" stroke-width="2.5"/>
+      <line x1="0" y1="50" x2="260" y2="50" stroke="#b45309" stroke-width="2.5"/>
+      <rect width="50" height="50" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+      <text x="25" y="32" text-anchor="middle" fill="#92400e" font-size="14" font-weight="bold">D1</text>
+      <text x="155" y="24" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات المستخدمين والصلاحيات</text>
+      <text x="155" y="42" text-anchor="middle" fill="#78350f" font-size="10">Users, Roles, Permissions</text>
+    </g>
+
+    <!-- Interconnections with D1 -->
+    <path d="M 135 125 L 135 285 L 250 285" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 375 125 L 375 260" fill="none" stroke="#2563eb" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 510 260 L 510 215" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#m-arr-amber)"/>
+    <path d="M 620 125 L 620 285 L 510 285" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#m-arr-amber)"/>
+
+    <!-- Bottom summary box -->
+    <rect x="30" y="340" width="700" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="380" y="365" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold">مدخلات ومخرجات المستوى الأول للعملية 1.0:</text>
+    <text x="700" y="390" text-anchor="end" fill="#475569" font-size="11">• مدخلات: بيانات التسجيل، اسم المستخدم، كلمة المرور، مصفوفة الصلاحيات من مدير النظام.</text>
+    <text x="700" y="415" text-anchor="end" fill="#475569" font-size="11">• مخرجات: توكن المصادقة، رسائل تأكيد التعديل، قوائم المستخدمين النشطين ومستويات الأذونات.</text>
+    <text x="700" y="440" text-anchor="end" fill="#0369a1" font-size="11">• الاتزان: مطابقة تامة مع التدفقات المرتبطة بمدير النظام في المستويين البيئي والصفري.</text>
+  </g>
+
+  <!-- ================= BLOCK 2: 2.0 إدارة الأوقاف والممتلكات والحصر الجغرافي ================= -->
+  <g transform="translate(880, 130)" filter="url(#shadow-card)">
+    <rect width="840" height="480" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="840" height="42" rx="14" fill="#0f766e"/>
+    <rect y="20" width="840" height="22" fill="#0f766e"/>
+    <text x="420" y="27" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">العملية 2.0: إدارة الأوقاف والممتلكات والحصر الجغرافي (Waqf, Assets &amp; GIS)</text>
+
+    <!-- Subprocesses: 2.1 to 2.8 -->
+    <!-- Row 1: 2.1, 2.2, 2.3, 2.4 -->
+    <rect x="25" y="60" width="185" height="55" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="117" y="82" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">2.1 تسجيل وقف جديد</text>
+    <text x="117" y="100" text-anchor="middle" fill="#475569" font-size="9">بيانات الحجة والواقف</text>
+
+    <rect x="225" y="60" width="185" height="55" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="317" y="82" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">2.2 تسجيل أصل وربطه</text>
+    <text x="317" y="100" text-anchor="middle" fill="#475569" font-size="9">عقار/أرض وربطها بالوقف</text>
+
+    <rect x="425" y="60" width="185" height="55" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="517" y="82" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">2.3 تعديل بيانات الأصل</text>
+    <text x="517" y="100" text-anchor="middle" fill="#475569" font-size="9">تحديث الأوصاف والحالة</text>
+
+    <rect x="625" y="60" width="185" height="55" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="717" y="82" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">2.4 حذف/إلغاء سجل</text>
+    <text x="717" y="100" text-anchor="middle" fill="#475569" font-size="9">أرشفة وإلغاء وفق الصلاحية</text>
+
+    <!-- Row 2: 2.5, 2.6, 2.7, 2.8 -->
+    <rect x="25" y="130" width="185" height="55" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="117" y="152" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">2.5 تحديد الموقع الجغرافي</text>
+    <text x="117" y="170" text-anchor="middle" fill="#475569" font-size="9">إحداثيات GPS (PostGIS Point)</text>
+
+    <rect x="225" y="130" width="185" height="55" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="317" y="152" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">2.6 الحدود والمساحة</text>
+    <text x="317" y="170" text-anchor="middle" fill="#475569" font-size="9">Polygon ورسم المضلعات</text>
+
+    <rect x="425" y="130" width="185" height="55" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="517" y="152" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">2.7 رصد حالات التعدي</text>
+    <text x="517" y="170" text-anchor="middle" fill="#475569" font-size="9">توثيق التعديات الميدانية</text>
+
+    <rect x="625" y="130" width="185" height="55" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+    <text x="717" y="152" text-anchor="middle" fill="#115e59" font-size="11" font-weight="bold">2.8 البحث وعرض الأصول</text>
+    <text x="717" y="170" text-anchor="middle" fill="#475569" font-size="9">فلاتر مكانية وتقارير جغرافية</text>
+
+    <!-- Store D2 -->
+    <g transform="translate(290, 220)">
+      <line x1="0" y1="0" x2="260" y2="0" stroke="#b45309" stroke-width="2.5"/>
+      <line x1="0" y1="50" x2="260" y2="50" stroke="#b45309" stroke-width="2.5"/>
+      <rect width="50" height="50" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+      <text x="25" y="32" text-anchor="middle" fill="#92400e" font-size="14" font-weight="bold">D2</text>
+      <text x="155" y="24" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات الأوقاف والأصول والمكان</text>
+      <text x="155" y="42" text-anchor="middle" fill="#78350f" font-size="10">Waqfs, Assets, PostGIS GIS Data</text>
+    </g>
+
+    <!-- Connectors to D2 -->
+    <path d="M 117 185 L 117 245 L 290 245" fill="none" stroke="#0d9488" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 317 185 L 317 220" fill="none" stroke="#0d9488" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 550 245 L 717 245 L 717 185" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#m-arr-amber)"/>
+
+    <!-- Bottom summary box -->
+    <rect x="25" y="310" width="790" height="145" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="420" y="335" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold">الخصائص الفنية والتحليلية للحصر المكاني في العملية 2.0:</text>
+    <text x="790" y="360" text-anchor="end" fill="#475569" font-size="11">• تخزين المعالم المكانية باستخدام ملحق PostGIS في PostgreSQL بنوعي ST_Point و ST_Polygon.</text>
+    <text x="790" y="385" text-anchor="end" fill="#475569" font-size="11">• احتساب المساحة تلقائياً عبر دوال ST_Area وتحديد التقاطعات مع المخططات العامة.</text>
+    <text x="790" y="410" text-anchor="end" fill="#475569" font-size="11">• تغذية العملية 5.0 (العقود) ببيانات الأصول الشاغرة الصالحة للإيجار، وتغذية العملية 3.0 للربط بالوثائق.</text>
+    <text x="790" y="435" text-anchor="end" fill="#0f766e" font-size="11">• ملاحظة قانونية معتمدة: لا تُعد الإحداثيات وحدها بينة قانونية بل تدعم وتطابق حجة الوقف الموثقة.</text>
+  </g>
+
+  <!-- ================= BLOCK 3: 3.0 إدارة الوثائق والأرشفة الإلكترونية OCR ================= -->
+  <g transform="translate(1760, 130)" filter="url(#shadow-card)">
+    <rect width="760" height="480" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="760" height="42" rx="14" fill="#7c2d12"/>
+    <rect y="20" width="760" height="22" fill="#7c2d12"/>
+    <text x="380" y="27" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">العملية 3.0: إدارة الوثائق الوقفية والأرشفة مع OCR (Archiving &amp; OCR)</text>
+
+    <!-- Subprocesses: 3.1 to 3.5 -->
+    <rect x="30" y="60" width="210" height="65" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="135" y="85" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.1 رفع الوثيقة والبيانات</text>
+    <text x="135" y="105" text-anchor="middle" fill="#475569" font-size="10">رفع الملف، نوعه، وبصمة SHA-256</text>
+
+    <rect x="270" y="60" width="210" height="65" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="375" y="85" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.2 استخراج نصوص OCR</text>
+    <text x="375" y="105" text-anchor="middle" fill="#475569" font-size="10">معالجة الصور واستخراج الكلمات</text>
+
+    <rect x="510" y="60" width="220" height="65" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="620" y="85" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.3 مراجعة وتصحيح النص</text>
+    <text x="620" y="105" text-anchor="middle" fill="#475569" font-size="10">تدقيق بشري قبل الاعتماد النهائي</text>
+
+    <rect x="140" y="150" width="220" height="65" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="250" y="175" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.4 البحث واسترجاع الوثائق</text>
+    <text x="250" y="195" text-anchor="middle" fill="#475569" font-size="10">بحث دلالي بالنص وبالأصل والوقف</text>
+
+    <rect x="400" y="150" width="220" height="65" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="510" y="175" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.5 حذف/تغيير حالة الأرشفة</text>
+    <text x="510" y="195" text-anchor="middle" fill="#475569" font-size="10">تحكم بالسرية والأرشفة الدائمة</text>
+
+    <!-- Store D3 -->
+    <g transform="translate(250, 260)">
+      <line x1="0" y1="0" x2="260" y2="0" stroke="#b45309" stroke-width="2.5"/>
+      <line x1="0" y1="50" x2="260" y2="50" stroke="#b45309" stroke-width="2.5"/>
+      <rect width="50" height="50" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+      <text x="25" y="32" text-anchor="middle" fill="#92400e" font-size="14" font-weight="bold">D3</text>
+      <text x="155" y="24" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات الوثائق والأرشيف الإلكتروني</text>
+      <text x="155" y="42" text-anchor="middle" fill="#78350f" font-size="10">Documents, OCR Texts, Hash Logs</text>
+    </g>
+
+    <!-- Interconnections with D3 -->
+    <path d="M 620 125 L 620 285 L 510 285" fill="none" stroke="#dc2626" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 250 215 L 250 260" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#m-arr-amber)"/>
+
+    <!-- Bottom summary box -->
+    <rect x="30" y="340" width="700" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="380" y="365" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold">ضوابط معالجة الوثائق وأرشفة الحجج الوقفية:</text>
+    <text x="700" y="390" text-anchor="end" fill="#475569" font-size="11">• إلزامية التدقيق البشري (3.3): لا يُعتمد استخراج OCR تلقائياً لحساسية نصوص الوقف الشرعية.</text>
+    <text x="700" y="415" text-anchor="end" fill="#475569" font-size="11">• بصمة التجزئة SHA-256 تضمن عدم التلاعب بالوثائق أو استبدال الملفات بعد أرشفتها.</text>
+    <text x="700" y="440" text-anchor="end" fill="#991b1b" font-size="11">• ترتبط هذه العملية بالمستوى الثاني (DFD Level 2) لتوضيح تفاصيل محرك OCR والمراجعة.</text>
+  </g>
+
+  <!-- ================= BLOCK 4: 4.0 إدارة شروط الواقفين والمستفيدين ================= -->
+  <g transform="translate(80, 640)" filter="url(#shadow-card)">
+    <rect width="760" height="480" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="760" height="42" rx="14" fill="#4338ca"/>
+    <rect y="20" width="760" height="22" fill="#4338ca"/>
+    <text x="380" y="27" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">العملية 4.0: إدارة شروط الواقفين والمستفيدين (Waqf Conditions &amp; Beneficiaries)</text>
+
+    <!-- Subprocesses: 4.1 to 4.5 -->
+    <rect x="30" y="60" width="210" height="65" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="135" y="85" text-anchor="middle" fill="#3730a3" font-size="12" font-weight="bold">4.1 تسجيل شروط الواقف</text>
+    <text x="135" y="105" text-anchor="middle" fill="#475569" font-size="10">تسجيل أوجه الصرف ونسب التوزيع</text>
+
+    <rect x="270" y="60" width="210" height="65" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="375" y="85" text-anchor="middle" fill="#3730a3" font-size="12" font-weight="bold">4.2 تسجيل مستفيد جديد</text>
+    <text x="375" y="105" text-anchor="middle" fill="#475569" font-size="10">بيانات المستفيد ودرجة القرابة/الحاجة</text>
+
+    <rect x="510" y="60" width="220" height="65" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="620" y="85" text-anchor="middle" fill="#3730a3" font-size="12" font-weight="bold">4.3 تعديل بيانات المستفيدين</text>
+    <text x="620" y="105" text-anchor="middle" fill="#475569" font-size="10">تحديث الحالة الاجتماعية والشروط</text>
+
+    <rect x="140" y="150" width="220" height="65" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="250" y="175" text-anchor="middle" fill="#3730a3" font-size="12" font-weight="bold">4.4 احتساب الحصص والمستحقات</text>
+    <text x="250" y="195" text-anchor="middle" fill="#475569" font-size="10">معادلات الاستحقاق وفق غلة الوقف</text>
+
+    <rect x="400" y="150" width="220" height="65" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="510" y="175" text-anchor="middle" fill="#3730a3" font-size="12" font-weight="bold">4.5 عرض وطباعة الكشوفات</text>
+    <text x="510" y="195" text-anchor="middle" fill="#475569" font-size="10">كشوفات الاستحقاق للناظر والإدارة</text>
+
+    <!-- Store D4 -->
+    <g transform="translate(250, 260)">
+      <line x1="0" y1="0" x2="260" y2="0" stroke="#b45309" stroke-width="2.5"/>
+      <line x1="0" y1="50" x2="260" y2="50" stroke="#b45309" stroke-width="2.5"/>
+      <rect width="50" height="50" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+      <text x="25" y="32" text-anchor="middle" fill="#92400e" font-size="14" font-weight="bold">D4</text>
+      <text x="155" y="24" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">شروط الواقفين وبيانات المستفيدين</text>
+      <text x="155" y="42" text-anchor="middle" fill="#78350f" font-size="10">Conditions, Beneficiaries, Entitlements</text>
+    </g>
+
+    <!-- Connectors -->
+    <path d="M 135 125 L 135 285 L 250 285" fill="none" stroke="#6366f1" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 375 125 L 375 260" fill="none" stroke="#6366f1" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 510 260 L 510 215" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#m-arr-amber)"/>
+
+    <!-- Bottom summary box -->
+    <rect x="30" y="340" width="700" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="380" y="365" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold">قواعد الأعمال المعتمدة لشروط الواقفين وحصص المستحقين:</text>
+    <text x="700" y="390" text-anchor="end" fill="#475569" font-size="11">• تُطَبَّق قاعدة «شرط الواقف كنص الشارع» في ضبط القيود وصرف ريع الأوقاف الأهلية والخيرية.</text>
+    <text x="700" y="415" text-anchor="end" fill="#475569" font-size="11">• تحتسب العملية 4.4 المبالغ المستحقة رقمياً، دون تنفيذ تحويلات بنكية فعلية (خارج النطاق).</text>
+    <text x="700" y="440" text-anchor="end" fill="#4338ca" font-size="11">• تصدر كشوفات الاستحقاق لتسليمها لإدارة المالية (6.0) أو تسليمها للناظر بموجب سندات رسمية.</text>
+  </g>
+
+  <!-- ================= BLOCK 5: 5.0 إدارة العقود والإيجارات ================= -->
+  <g transform="translate(880, 640)" filter="url(#shadow-card)">
+    <rect width="840" height="480" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="840" height="42" rx="14" fill="#047857"/>
+    <rect y="20" width="840" height="22" fill="#047857"/>
+    <text x="420" y="27" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">العملية 5.0: إدارة العقود والإيجارات (Contracts &amp; Leases Management)</text>
+
+    <!-- Subprocesses: 5.1 to 5.5 -->
+    <rect x="25" y="60" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+    <text x="145" y="85" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">5.1 إنشاء عقد إيجار</text>
+    <text x="145" y="105" text-anchor="middle" fill="#475569" font-size="10">ربط المستأجر بالأصل الشاغر وقيمة العقد</text>
+
+    <rect x="300" y="60" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+    <text x="420" y="85" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">5.2 تعديل بيانات العقد</text>
+    <text x="420" y="105" text-anchor="middle" fill="#475569" font-size="10">تعديل الشروط والملحقات وفترات السداد</text>
+
+    <rect x="575" y="60" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+    <text x="695" y="85" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">5.3 تجديد العقد أو إنهاؤه</text>
+    <text x="695" y="105" text-anchor="middle" fill="#475569" font-size="10">تحديث الحالة (نشط، منتهي، ملغى، مجدد)</text>
+
+    <rect x="160" y="150" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+    <text x="280" y="175" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">5.4 متابعة تواريخ الانتهاء والتنبيه</text>
+    <text x="280" y="195" text-anchor="middle" fill="#475569" font-size="10">تنبيهات تلقائية قبل نهاية العقد</text>
+
+    <rect x="440" y="150" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+    <text x="560" y="175" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">5.5 عرض وطباعة بيانات العقد</text>
+    <text x="560" y="195" text-anchor="middle" fill="#475569" font-size="10">توليد نسخة العقد الرسمية وجدول الأقساط</text>
+
+    <!-- Store D5 -->
+    <g transform="translate(290, 240)">
+      <line x1="0" y1="0" x2="260" y2="0" stroke="#b45309" stroke-width="2.5"/>
+      <line x1="0" y1="50" x2="260" y2="50" stroke="#b45309" stroke-width="2.5"/>
+      <rect width="50" height="50" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+      <text x="25" y="32" text-anchor="middle" fill="#92400e" font-size="14" font-weight="bold">D5</text>
+      <text x="155" y="24" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات العقود والإيجارات والتنبيهات</text>
+      <text x="155" y="42" text-anchor="middle" fill="#78350f" font-size="10">Contracts, Lease Terms, Expiries</text>
+    </g>
+
+    <!-- Connectors -->
+    <path d="M 145 125 L 145 265 L 290 265" fill="none" stroke="#10b981" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 420 125 L 420 240" fill="none" stroke="#10b981" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 550 265 L 695 265 L 695 125" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#m-arr-amber)"/>
+
+    <!-- Bottom summary box -->
+    <rect x="25" y="320" width="790" height="135" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="420" y="345" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold">التكامل والتفاعل الوظيفي لإدارة العقود:</text>
+    <text x="790" y="370" text-anchor="end" fill="#475569" font-size="11">• تقرأ العملية 5.1 بيانات الأصول الشاغرة من مخزن D2 وتحول حالة الأصل إلى «مؤجر» فور اعتماد العقد.</text>
+    <text x="790" y="395" text-anchor="end" fill="#475569" font-size="11">• تولد العملية 5.1 جدول الدفعات المستحقة وتمرره للعملية 6.0 لإنشاء استحقاقات التحصيل المالي.</text>
+    <text x="790" y="420" text-anchor="end" fill="#047857" font-size="11">• ترسل العملية 5.4 إشعارات التنبيه للمستأجر وموظف الأوقاف بانتهاء فترة العقد أو حلول القسط.</text>
+  </g>
+
+  <!-- ================= BLOCK 6: 6.0 إدارة المعاملات المالية والتحصيل ================= -->
+  <g transform="translate(1760, 640)" filter="url(#shadow-card)">
+    <rect width="760" height="480" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="760" height="42" rx="14" fill="#b45309"/>
+    <rect y="20" width="760" height="22" fill="#b45309"/>
+    <text x="380" y="27" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">العملية 6.0: إدارة المعاملات المالية والتحصيل (Financials &amp; Receipts)</text>
+
+    <!-- Subprocesses: 6.1 to 6.5 -->
+    <rect x="30" y="60" width="210" height="65" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="135" y="85" text-anchor="middle" fill="#b45309" font-size="12" font-weight="bold">6.1 تسجيل معاملة مالية</text>
+    <text x="135" y="105" text-anchor="middle" fill="#475569" font-size="10">إيراد وقفي أو مصروف صيانة/إدارة</text>
+
+    <rect x="270" y="60" width="210" height="65" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="375" y="85" text-anchor="middle" fill="#b45309" font-size="12" font-weight="bold">6.2 إصدار سند قبض إلكتروني</text>
+    <text x="375" y="105" text-anchor="middle" fill="#475569" font-size="10">توليد رقم تسلسلي وبصمة التحقق</text>
+
+    <rect x="510" y="60" width="220" height="65" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="620" y="85" text-anchor="middle" fill="#b45309" font-size="12" font-weight="bold">6.3 تعديل بيانات المعاملة</text>
+    <text x="620" y="105" text-anchor="middle" fill="#475569" font-size="10">تصحيح القيود وفق صلاحية المشرف</text>
+
+    <rect x="140" y="150" width="220" height="65" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="250" y="175" text-anchor="middle" fill="#b45309" font-size="12" font-weight="bold">6.4 احتساب المحصل والمتأخرات</text>
+    <text x="250" y="195" text-anchor="middle" fill="#475569" font-size="10">مطابقة المبالغ المحصلة مع العقود</text>
+
+    <rect x="400" y="150" width="220" height="65" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="510" y="175" text-anchor="middle" fill="#b45309" font-size="12" font-weight="bold">6.5 التقارير والملخصات المالية</text>
+    <text x="510" y="195" text-anchor="middle" fill="#475569" font-size="10">ميزان الإيرادات، العوائد، وتقارير الوقف</text>
+
+    <!-- Store D6 -->
+    <g transform="translate(250, 260)">
+      <line x1="0" y1="0" x2="260" y2="0" stroke="#b45309" stroke-width="2.5"/>
+      <line x1="0" y1="50" x2="260" y2="50" stroke="#b45309" stroke-width="2.5"/>
+      <rect width="50" height="50" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+      <text x="25" y="32" text-anchor="middle" fill="#92400e" font-size="14" font-weight="bold">D6</text>
+      <text x="155" y="24" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">المعاملات المالية وسندات القبض</text>
+      <text x="155" y="42" text-anchor="middle" fill="#78350f" font-size="10">Transactions, Receipts, Arrears</text>
+    </g>
+
+    <!-- Connectors -->
+    <path d="M 135 125 L 135 285 L 250 285" fill="none" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 375 125 L 375 260" fill="none" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 510 260 L 510 215" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#m-arr-amber)"/>
+
+    <!-- Bottom summary box -->
+    <rect x="30" y="340" width="700" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="380" y="365" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold">الضوابط الأكاديمية والمالية لنطاق المنصة:</text>
+    <text x="700" y="390" text-anchor="end" fill="#475569" font-size="11">• لا تنفذ المنصة مدفوعات بنكية أو بوابات دفع إلكتروني (Payment Gateways) بشكل مباشر.</text>
+    <text x="700" y="415" text-anchor="end" fill="#475569" font-size="11">• تختص العملية 6.0 بتسجيل حركات القبض والصرف، وتوليد السندات، واحتساب الفروقات والمتأخرات.</text>
+    <text x="700" y="440" text-anchor="end" fill="#b45309" font-size="11">• ترتبط التقارير بالوقف المعني لتمكين الناظر من مراقبة غلة وقفه ومصروفاته بدقة وشفافية.</text>
+  </g>
+
+  <!-- ================= BLOCK 7: 7.0 إدارة الخدمات والطلبات ================= -->
+  <g transform="translate(880, 1150)" filter="url(#shadow-card)">
+    <rect width="840" height="460" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="840" height="42" rx="14" fill="#0369a1"/>
+    <rect y="20" width="840" height="22" fill="#0369a1"/>
+    <text x="420" y="27" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">العملية 7.0: إدارة الخدمات الإلكترونية والطلبات (E-Services &amp; Requests)</text>
+
+    <!-- Subprocesses: 7.1 to 7.5 -->
+    <rect x="25" y="60" width="240" height="65" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="1.5"/>
+    <text x="145" y="85" text-anchor="middle" fill="#0369a1" font-size="12" font-weight="bold">7.1 تقديم طلب/بلاغ/شكوى</text>
+    <text x="145" y="105" text-anchor="middle" fill="#475569" font-size="10">تسجيل نوع الطلب وإرفاق الوثائق</text>
+
+    <rect x="300" y="60" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#0ea5e9" stroke-width="1.5"/>
+    <text x="420" y="85" text-anchor="middle" fill="#0369a1" font-size="12" font-weight="bold">7.2 مراجعة ومعالجة الطلب</text>
+    <text x="420" y="105" text-anchor="middle" fill="#475569" font-size="10">دراسة الطلب وتحديث حالته (قبول/رفض)</text>
+
+    <rect x="575" y="60" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#0ea5e9" stroke-width="1.5"/>
+    <text x="695" y="85" text-anchor="middle" fill="#0369a1" font-size="12" font-weight="bold">7.3 إرسال إشعارات التحديث</text>
+    <text x="695" y="105" text-anchor="middle" fill="#475569" font-size="10">إشعار المستفيد/المستأجر داخل النظام</text>
+
+    <rect x="160" y="150" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#0ea5e9" stroke-width="1.5"/>
+    <text x="280" y="175" text-anchor="middle" fill="#0369a1" font-size="12" font-weight="bold">7.4 البحث وعرض الطلبات</text>
+    <text x="280" y="195" text-anchor="middle" fill="#475569" font-size="10">تصفية الطلبات حسب التاريخ والحالة</text>
+
+    <rect x="440" y="150" width="240" height="65" rx="10" fill="#f0fdf4" stroke="#0ea5e9" stroke-width="1.5"/>
+    <text x="560" y="175" text-anchor="middle" fill="#0369a1" font-size="12" font-weight="bold">7.5 سجل العمليات والرقابة</text>
+    <text x="560" y="195" text-anchor="middle" fill="#475569" font-size="10">توثيق إجراءات المتابعة والتدقيق</text>
+
+    <!-- Store D7 -->
+    <g transform="translate(290, 240)">
+      <line x1="0" y1="0" x2="260" y2="0" stroke="#b45309" stroke-width="2.5"/>
+      <line x1="0" y1="50" x2="260" y2="50" stroke="#b45309" stroke-width="2.5"/>
+      <rect width="50" height="50" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+      <text x="25" y="32" text-anchor="middle" fill="#92400e" font-size="14" font-weight="bold">D7</text>
+      <text x="155" y="24" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات الخدمات والطلبات والمرفقات</text>
+      <text x="155" y="42" text-anchor="middle" fill="#78350f" font-size="10">Requests, Attachments, Audit Logs</text>
+    </g>
+
+    <!-- Connectors -->
+    <path d="M 145 125 L 145 265 L 290 265" fill="none" stroke="#0ea5e9" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 420 125 L 420 240" fill="none" stroke="#0ea5e9" stroke-width="1.5" marker-end="url(#m-arr)"/>
+    <path d="M 550 265 L 695 265 L 695 125" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#m-arr-amber)"/>
+
+    <!-- Bottom summary box -->
+    <rect x="25" y="320" width="790" height="115" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="420" y="345" text-anchor="middle" fill="#334155" font-size="12" font-weight="bold">آلية معالجة دورة حياة الطلبات الإلكترونية والبلاغات:</text>
+    <text x="790" y="370" text-anchor="end" fill="#475569" font-size="11">• استقبال طلبات المستفيدين والمستأجرين وتمريرها إلى الموظف المختص أو الناظر مع مرفقاتها.</text>
+    <text x="790" y="395" text-anchor="end" fill="#475569" font-size="11">• عند قبول الطلب، يتم إرسال تنبيهات داخلية في النظام (7.3) وتحديث سجلات المستفيدين أو العقود آلياً.</text>
+  </g>
+
+  <!-- Left Side Entity Reference Box -->
+  <g transform="translate(80, 1150)" filter="url(#shadow-card)">
+    <rect width="760" height="460" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="760" height="40" rx="14" fill="#334155"/>
+    <rect y="20" width="760" height="20" fill="#334155"/>
+    <text x="380" y="27" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">قواعد الاتزان الهندسي لمخطط المستوى الأول (Balancing Verification)</text>
+
+    <text x="730" y="70" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">1. مطابقة التدفقات الخارجية مع المخطط الصفري:</text>
+    <text x="730" y="95" text-anchor="end" fill="#475569" font-size="11">• مدير النظام: يتصل حصرياً بالعمليات الفرعية 1.1 إلى 1.5 لإدارة المستخدمين والصلاحيات وسجل التدقيق.</text>
+    <text x="730" y="120" text-anchor="end" fill="#475569" font-size="11">• موظف الأوقاف: يغذي العمليات 2.1-2.7 (الأصول)، 3.1-3.3 (الوثائق)، 5.1-5.3 (العقود)، 6.1-6.4 (المالية).</text>
+    <text x="730" y="145" text-anchor="end" fill="#475569" font-size="11">• الناظر أو الوكيل: يستعلم عبر 2.8 و 4.5 و 6.5 ويقدم بلاغات ووثائق عبر 7.1 و 3.1.</text>
+    <text x="730" y="170" text-anchor="end" fill="#475569" font-size="11">• المستأجر: يتفاعل مع 5.1-5.5 (العقود) و 6.1-6.2 (سندات القبض) و 7.1 (طلبات الصيانة/الشكاوى).</text>
+    <text x="730" y="195" text-anchor="end" fill="#475569" font-size="11">• المستفيد: يتقدم بطلبات الاستفادة عبر 7.1 ويستعلم عن حصصه ومواعيد الصرف عبر 4.5.</text>
+
+    <line x1="30" y1="215" x2="730" y2="215" stroke="#cbd5e1" stroke-width="1"/>
+
+    <text x="730" y="240" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">2. منع تدفقات البيانات غير المسموح بها علمياً:</text>
+    <text x="730" y="265" text-anchor="end" fill="#15803d" font-size="11">✔ لا يوجد أي تدفق مباشر بين كيان خارجي ومخزن بيانات (كل التدفقات تمر عبر العمليات الفرعية).</text>
+    <text x="730" y="290" text-anchor="end" fill="#15803d" font-size="11">✔ لا يوجد أي تدفق مباشر بين مخزنين للبيانات (تتم المزامنة وتبادل البيانات حصراً عبر العمليات).</text>
+    <text x="730" y="315" text-anchor="end" fill="#15803d" font-size="11">✔ تمثيل العمليات بأفعال مضارعة واضحة، وخلو المخطط تماماً من أسهم القرارات والتحكم (Flowchart).</text>
+
+    <line x1="30" y1="335" x2="730" y2="335" stroke="#cbd5e1" stroke-width="1"/>
+
+    <text x="730" y="360" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">3. مصفوفة مخازن البيانات السبعة (Data Stores):</text>
+    <text x="730" y="385" text-anchor="end" fill="#b45309" font-size="11">D1: المستخدمين والصلاحيات | D2: الأوقاف والأصول والـ GIS | D3: الوثائق وأرشيف نصوص OCR</text>
+    <text x="730" y="410" text-anchor="end" fill="#b45309" font-size="11">D4: شروط الواقفين والمستفيدين | D5: العقود والإيجارات والتنبيهات | D6: المعاملات المالية وسندات القبض</text>
+    <text x="730" y="435" text-anchor="end" fill="#b45309" font-size="11">D7: الخدمات والطلبات والمرفقات وسجلات الرقابة والتدقيق.</text>
+  </g>
+
+  <!-- Right Side Entity Reference Box -->
+  <g transform="translate(1760, 1150)" filter="url(#shadow-card)">
+    <rect width="760" height="460" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="760" height="40" rx="14" fill="#1e293b"/>
+    <rect y="20" width="760" height="20" fill="#1e293b"/>
+    <text x="380" y="27" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">التدفقات المتبادلة بين العمليات الرئيسية (Inter-Process Flows)</text>
+
+    <!-- Table of Inter-Process Flows -->
+    <g transform="translate(20, 55)">
+      <rect width="720" height="30" fill="#e2e8f0" rx="4"/>
+      <text x="650" y="20" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="bold">من العملية</text>
+      <text x="500" y="20" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="bold">إلى العملية</text>
+      <text x="320" y="20" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="bold">مسمى تدفق البيانات</text>
+      <text x="110" y="20" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="bold">الغرض الوظيفي للتدفق</text>
+
+      <!-- Row 1 -->
+      <rect y="35" width="720" height="35" fill="#ffffff"/>
+      <text x="650" y="58" text-anchor="middle" fill="#1e40af" font-size="11">2.0 (الأصول)</text>
+      <text x="500" y="58" text-anchor="middle" fill="#047857" font-size="11">5.0 (العقود)</text>
+      <text x="320" y="58" text-anchor="middle" fill="#0f172a" font-size="11">بيانات الأصل الشاغر والمساحة</text>
+      <text x="110" y="58" text-anchor="middle" fill="#475569" font-size="10">إنشاء عقد تأجير للأصل المتاح</text>
+      <line x1="0" y1="70" x2="720" y2="70" stroke="#e2e8f0"/>
+
+      <!-- Row 2 -->
+      <rect y="72" width="720" height="35" fill="#f8fafc"/>
+      <text x="650" y="95" text-anchor="middle" fill="#2.0" font-size="11">2.0 (الأصول)</text>
+      <text x="500" y="95" text-anchor="middle" fill="#7c2d12" font-size="11">3.0 (الوثائق)</text>
+      <text x="320" y="95" text-anchor="middle" fill="#0f172a" font-size="11">معرف الوقف / الأصل الوقفي</text>
+      <text x="110" y="95" text-anchor="middle" fill="#475569" font-size="10">ربط الوثيقة وسجل الحجة بالأصل</text>
+      <line x1="0" y1="107" x2="720" y2="107" stroke="#e2e8f0"/>
+
+      <!-- Row 3 -->
+      <rect y="109" width="720" height="35" fill="#ffffff"/>
+      <text x="650" y="132" text-anchor="middle" fill="#047857" font-size="11">5.0 (العقود)</text>
+      <text x="500" y="132" text-anchor="middle" fill="#b45309" font-size="11">6.0 (المالية)</text>
+      <text x="320" y="132" text-anchor="middle" fill="#0f172a" font-size="11">جدول التزامات الإيجار والدفعات</text>
+      <text x="110" y="132" text-anchor="middle" fill="#475569" font-size="10">تحصيل الأقساط وإصدار سندات القبض</text>
+      <line x1="0" y1="144" x2="720" y2="144" stroke="#e2e8f0"/>
+
+      <!-- Row 4 -->
+      <rect y="146" width="720" height="35" fill="#f8fafc"/>
+      <text x="650" y="169" text-anchor="middle" fill="#4338ca" font-size="11">4.0 (الشروط)</text>
+      <text x="500" y="169" text-anchor="middle" fill="#b45309" font-size="11">6.0 (المالية)</text>
+      <text x="320" y="169" text-anchor="middle" fill="#0f172a" font-size="11">كشوفات استحقاقات المستفيدين</text>
+      <text x="110" y="169" text-anchor="middle" fill="#475569" font-size="10">صرف العوائد وتوثيق السندات</text>
+      <line x1="0" y1="181" x2="720" y2="181" stroke="#e2e8f0"/>
+
+      <!-- Row 5 -->
+      <rect y="183" width="720" height="35" fill="#ffffff"/>
+      <text x="650" y="206" text-anchor="middle" fill="#0369a1" font-size="11">7.0 (الطلبات)</text>
+      <text x="500" y="206" text-anchor="middle" fill="#4338ca" font-size="11">4.0 (المستفيدين)</text>
+      <text x="320" y="206" text-anchor="middle" fill="#0f172a" font-size="11">طلب استفادة معتمد ومرفقاته</text>
+      <text x="110" y="206" text-anchor="middle" fill="#475569" font-size="10">إدراج المستفيد في سجلات الاستحقاق</text>
+      <line x1="0" y1="218" x2="720" y2="218" stroke="#e2e8f0"/>
+
+      <!-- Row 6 -->
+      <rect y="220" width="720" height="35" fill="#f8fafc"/>
+      <text x="650" y="243" text-anchor="middle" fill="#0369a1" font-size="11">7.0 (الطلبات)</text>
+      <text x="500" y="243" text-anchor="middle" fill="#047857" font-size="11">5.0 (العقود)</text>
+      <text x="320" y="243" text-anchor="middle" fill="#0f172a" font-size="11">طلب استئجار معتمد وبيانات المستأجر</text>
+      <text x="110" y="243" text-anchor="middle" fill="#475569" font-size="10">تجهيز مسودة العقد للتوقيع</text>
+      <line x1="0" y1="255" x2="720" y2="255" stroke="#e2e8f0"/>
+
+      <!-- Row 7 -->
+      <rect y="257" width="720" height="35" fill="#ffffff"/>
+      <text x="650" y="280" text-anchor="middle" fill="#0369a1" font-size="11">7.0 (الطلبات)</text>
+      <text x="500" y="280" text-anchor="middle" fill="#0f766e" font-size="11">2.0 (الأصول)</text>
+      <text x="320" y="280" text-anchor="middle" fill="#0f172a" font-size="11">بلاغ تعدٍ مكاني أو شكوى صيانة</text>
+      <text x="110" y="280" text-anchor="middle" fill="#475569" font-size="10">تحديث حالة الأصل ورصد التعديات</text>
+      <line x1="0" y1="292" x2="720" y2="292" stroke="#e2e8f0"/>
+
+      <!-- Row 8 -->
+      <rect y="294" width="720" height="35" fill="#f8fafc"/>
+      <text x="650" y="317" text-anchor="middle" fill="#1e40af" font-size="11">1.0 (الحسابات)</text>
+      <text x="500" y="317" text-anchor="middle" fill="#334155" font-size="11">كافة العمليات</text>
+      <text x="320" y="317" text-anchor="middle" fill="#0f172a" font-size="11">بيانات الهوية والمصادقة والصلاحيات</text>
+      <text x="110" y="317" text-anchor="middle" fill="#475569" font-size="10">التحقق من تخويل المستخدم للعملية</text>
+      <line x1="0" y1="329" x2="720" y2="329" stroke="#e2e8f0"/>
+    </g>
+
+    <text x="380" y="440" text-anchor="middle" fill="#0369a1" font-size="11" font-weight="bold">جميع التفاعلات البينية تتبع نمط الخدمات المستقلة (Loosely Coupled Services) عبر RESTful APIs</text>
+  </g>
+
+  <!-- Bottom Legend -->
+  <g transform="translate(950, 1680)">
+    <rect width="700" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="350" y="20" text-anchor="middle" fill="#475569" font-size="12" font-weight="bold">دليل الرموز والألوان في المستوى الأول</text>
+    <rect x="50" y="30" width="80" height="20" rx="4" fill="#eff6ff" stroke="#3b82f6"/>
+    <text x="90" y="44" text-anchor="middle" fill="#1e3a8a" font-size="10">عملية فرعية</text>
+    <rect x="220" y="30" width="80" height="20" fill="#fef3c7" stroke="#b45309"/>
+    <text x="260" y="44" text-anchor="middle" fill="#92400e" font-size="10">D# مخزن بيانات</text>
+    <line x1="400" y1="40" x2="450" y2="40" stroke="#2563eb" stroke-width="2" marker-end="url(#m-arr)"/>
+    <text x="490" y="44" text-anchor="middle" fill="#2563eb" font-size="10">كتابة في المخزن</text>
+    <line x1="560" y1="40" x2="610" y2="40" stroke="#d97706" stroke-width="2" marker-end="url(#m-arr-amber)"/>
+    <text x="645" y="44" text-anchor="middle" fill="#d97706" font-size="10">قراءة من المخزن</text>
+  </g>
+
+</svg>
+    </div>
+    <div class="academic-text">
+      <h3>الشرح الأكاديمي للمستوى الأول:</h3>
+      <p>يوفر المخطط رؤية تفصيلية لكل وظيفة داخل المنصة، متضمناً العمليات الفرعية للبيانات المكانية ونظم PostGIS (2.5-2.6)، والأرشفة الإلكترونية والتدقيق (3.1-3.5)، واحتساب الاستحقاقات الشرعية (4.4)، والتنبيهات المجدولة للعقود (5.4)، وإصدار سندات القبض الإلكترونية (6.2).</p>
+    </div>
+  </div>
+
+  <!-- 4. DFD 2 -->
+  <div id="sec-dfd2" class="diagram-section">
+    <div class="section-header">
+      <h2>شكل (3-4): مخطط تدفق البيانات من المستوى الثاني (DFD Level 2) للعملية (3.0)</h2>
+      <p style="color:#64748b; font-size:13px;">تحليل خط أنابيب معالجة الوثائق، محرك OCR، والتدقيق البشري وبصمة SHA-256</p>
+    </div>
+    <div class="svg-viewport">
+      
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 1500" width="2200" height="1500" style="background-color: #ffffff; font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Banner -->
+  <rect x="60" y="30" width="2080" height="75" rx="12" fill="#0f172a" />
+  <text x="1100" y="66" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="bold">شكل (3-4): مخطط تدفق البيانات من المستوى الثاني (DFD Level 2) للعملية (3.0) إدارة الوثائق الوقفية والأرشفة الإلكترونية</text>
+  <text x="1100" y="90" text-anchor="middle" fill="#94a3b8" font-size="14">تحليل تفصيلي لخط أنابيب الذكاء الاصطناعي (OCR Pipeline)، التحقق من البصمة الرقمية SHA-256، والتدقيق البشري الإلزامي</text>
+
+  <!-- External Entity: موظف إدارة الأوقاف (Right) -->
+  <g transform="translate(1820, 220)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="2.5"/>
+    <rect width="280" height="26" rx="6" fill="#334155"/>
+    <rect y="12" width="280" height="14" fill="#334155"/>
+    <text x="140" y="18" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">جهة خارجية (Entity)</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">موظف إدارة الأوقاف</text>
+    <text x="140" y="76" text-anchor="middle" fill="#64748b" font-size="11">مدقق الوثائق ومسؤول الأرشيف</text>
+  </g>
+
+  <!-- External Entity: الناظر أو الوكيل (Right Bottom) -->
+  <g transform="translate(1820, 1050)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="2.5"/>
+    <rect width="280" height="26" rx="6" fill="#334155"/>
+    <rect y="12" width="280" height="14" fill="#334155"/>
+    <text x="140" y="18" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">جهة خارجية (Entity)</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="bold">الناظر أو الوكيل</text>
+    <text x="140" y="76" text-anchor="middle" fill="#64748b" font-size="11">استعراض والبحث في حجج الوقف</text>
+  </g>
+
+  <!-- External Data Store Reference: D2 الأوقاف والأصول -->
+  <g transform="translate(100, 240)">
+    <line x1="0" y1="0" x2="240" y2="0" stroke="#b45309" stroke-width="2.5"/>
+    <line x1="0" y1="55" x2="240" y2="55" stroke="#b45309" stroke-width="2.5"/>
+    <rect width="55" height="55" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="27" y="34" text-anchor="middle" fill="#92400e" font-size="15" font-weight="bold">D2</text>
+    <text x="145" y="26" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">بيانات الأوقاف والأصول</text>
+    <text x="145" y="44" text-anchor="middle" fill="#78350f" font-size="11">للربط مع الوثيقة</text>
+  </g>
+
+  <!-- Main Store: D3 بيانات الوثائق والأرشيف -->
+  <g transform="translate(950, 750)" filter="url(#shadow)">
+    <line x1="0" y1="0" x2="300" y2="0" stroke="#b45309" stroke-width="3"/>
+    <line x1="0" y1="65" x2="300" y2="65" stroke="#b45309" stroke-width="3"/>
+    <rect width="65" height="65" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="32" y="40" text-anchor="middle" fill="#92400e" font-size="18" font-weight="bold">D3</text>
+    <text x="180" y="30" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">بيانات الوثائق والأرشيف الإلكتروني</text>
+    <text x="180" y="52" text-anchor="middle" fill="#78350f" font-size="12">الملفات، بصمات SHA-256، النصوص المعتمدة</text>
+  </g>
+
+  <!-- ================= SUBPROCESSES (3.1 to 3.7) ================= -->
+
+  <!-- Subprocess 3.1: رفع الوثيقة والتحقق من التنسيق والسلامة -->
+  <g transform="translate(1420, 220)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="16" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 264 0 A 16 16 0 0 1 280 16 L 280 30 L 0 30 Z" fill="#fee2e2"/>
+    <text x="140" y="20" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.1</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">رفع الوثيقة والتحقق</text>
+    <text x="140" y="75" text-anchor="middle" fill="#64748b" font-size="11">فحص نوع الملف والحجم والأمان</text>
+  </g>
+
+  <!-- Subprocess 3.2: توليد البصمة الرقمية والتشفير SHA-256 -->
+  <g transform="translate(1000, 220)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="16" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 264 0 A 16 16 0 0 1 280 16 L 280 30 L 0 30 Z" fill="#fee2e2"/>
+    <text x="140" y="20" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.2</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">توليد البصمة الرقمية</text>
+    <text x="140" y="75" text-anchor="middle" fill="#64748b" font-size="11">حساب الهاش SHA-256 لسلامة البيانات</text>
+  </g>
+
+  <!-- Subprocess 3.3: المعالجة المسبقة للصورة الرقمية -->
+  <g transform="translate(580, 220)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="16" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 264 0 A 16 16 0 0 1 280 16 L 280 30 L 0 30 Z" fill="#fee2e2"/>
+    <text x="140" y="20" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.3</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">معالجة الصور الرقمية</text>
+    <text x="140" y="75" text-anchor="middle" fill="#64748b" font-size="11">إزالة الضوضاء وتصحيح الميل والتباين</text>
+  </g>
+
+  <!-- Subprocess 3.4: استخراج النصوص آلياً عبر محرك OCR -->
+  <g transform="translate(580, 480)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="16" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 264 0 A 16 16 0 0 1 280 16 L 280 30 L 0 30 Z" fill="#fee2e2"/>
+    <text x="140" y="20" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.4</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">محرك التعرف الضوئي (OCR)</text>
+    <text x="140" y="75" text-anchor="middle" fill="#64748b" font-size="11">استخراج الكلمات العربية وتحديد الثقة</text>
+  </g>
+
+  <!-- Subprocess 3.5: بيئة التدقيق والمراجعة البشرية (Human-in-the-Loop) -->
+  <g transform="translate(1000, 480)" filter="url(#shadow)">
+    <rect width="280" height="110" rx="16" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 264 0 A 16 16 0 0 1 280 16 L 280 30 L 0 30 Z" fill="#d1fae5"/>
+    <text x="140" y="20" text-anchor="middle" fill="#065f46" font-size="12" font-weight="bold">3.5 (مرحلة إلزامية)</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">المراجعة والتدقيق البشري</text>
+    <text x="140" y="75" text-anchor="middle" fill="#059669" font-size="12" font-weight="bold">مطابقة بصرية جنباً إلى جنب</text>
+    <text x="140" y="95" text-anchor="middle" fill="#64748b" font-size="10">تصحيح الأخطاء واعتماد النص النهائي</text>
+  </g>
+
+  <!-- Subprocess 3.6: فهرسة البيانات الوصفية وربط الأصول -->
+  <g transform="translate(1420, 480)" filter="url(#shadow)">
+    <rect width="280" height="100" rx="16" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 264 0 A 16 16 0 0 1 280 16 L 280 30 L 0 30 Z" fill="#fee2e2"/>
+    <text x="140" y="20" text-anchor="middle" fill="#991b1b" font-size="12" font-weight="bold">3.6</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">فهرسة البيانات الوصفية</text>
+    <text x="140" y="75" text-anchor="middle" fill="#64748b" font-size="11">ربط الوثيقة والنص بالوقف/الأصل</text>
+  </g>
+
+  <!-- Subprocess 3.7: محرك البحث الدلالي والاسترجاع -->
+  <g transform="translate(1420, 1050)" filter="url(#shadow)">
+    <rect width="280" height="95" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <path d="M 0 16 A 16 16 0 0 1 16 0 L 264 0 A 16 16 0 0 1 280 16 L 280 30 L 0 30 Z" fill="#dbeafe"/>
+    <text x="140" y="20" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="bold">3.7</text>
+    <text x="140" y="55" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="bold">البحث الدلالي والاسترجاع</text>
+    <text x="140" y="75" text-anchor="middle" fill="#64748b" font-size="11">بحث بالنص الكامل وفلاتر الأصول</text>
+  </g>
+
+  <!-- ================= FLOWS (LEVEL 2) ================= -->
+  <!-- Officer -> 3.1 -->
+  <path d="M 1820 265 L 1700 265" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <rect x="1710" y="240" width="100" height="20" rx="4" fill="#fee2e2"/>
+  <text x="1760" y="254" text-anchor="middle" fill="#991b1b" font-size="10">ملف الوثيقة</text>
+
+  <!-- 3.1 -> 3.2 -->
+  <path d="M 1420 265 L 1280 265" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <text x="1350" y="255" text-anchor="middle" fill="#475569" font-size="10">ملف معتمد وصالح</text>
+
+  <!-- 3.2 -> 3.3 -->
+  <path d="M 1000 265 L 860 265" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <text x="930" y="255" text-anchor="middle" fill="#475569" font-size="10">الصورة + الهاش</text>
+
+  <!-- 3.3 -> 3.4 -->
+  <path d="M 720 315 L 720 480" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <text x="770" y="400" text-anchor="middle" fill="#475569" font-size="10">صورة محسنة للتعرف</text>
+
+  <!-- 3.4 -> 3.5 (Raw OCR text -> Human Review) -->
+  <path d="M 860 530 L 1000 530" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <rect x="880" y="505" width="110" height="22" rx="4" fill="#fee2e2"/>
+  <text x="935" y="520" text-anchor="middle" fill="#991b1b" font-size="10">النص الخام المستخرج</text>
+
+  <!-- Officer <-> 3.5 (Review loop) -->
+  <path d="M 1140 480 L 1140 410 L 1960 410 L 1960 315" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="1450" y="395" width="200" height="22" rx="4" fill="#d1fae5"/>
+  <text x="1550" y="410" text-anchor="middle" fill="#065f46" font-size="11" font-weight="bold">عرض المسودة للمراجعة والمقارنة</text>
+
+  <path d="M 1940 315 L 1940 380 L 1200 380 L 1200 480" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <rect x="1450" y="365" width="200" height="22" rx="4" fill="#dbeafe"/>
+  <text x="1550" y="380" text-anchor="middle" fill="#1e40af" font-size="11" font-weight="bold">اعتماد وتصحيح النص نهائياً</text>
+
+  <!-- 3.5 -> 3.6 -->
+  <path d="M 1280 530 L 1420 530" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+  <rect x="1300" y="505" width="110" height="22" rx="4" fill="#d1fae5"/>
+  <text x="1355" y="520" text-anchor="middle" fill="#065f46" font-size="10">النص المعتمد والمدقق</text>
+
+  <!-- D2 -> 3.6 (Linking data) -->
+  <path d="M 220 295 L 220 630 L 1450 630 L 1450 580" fill="none" stroke="#d97706" stroke-dasharray="4,4" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <rect x="750" y="618" width="180" height="22" rx="4" fill="#fef3c7"/>
+  <text x="840" y="633" text-anchor="middle" fill="#92400e" font-size="10">معرفات الأوقاف والأصول للربط</text>
+
+  <!-- 3.6 -> D3 (Write final archive) -->
+  <path d="M 1560 580 L 1560 780 L 1250 780" fill="none" stroke="#dc2626" stroke-width="2.5" marker-end="url(#arr-red)"/>
+  <rect x="1340" y="755" width="200" height="22" rx="4" fill="#fee2e2"/>
+  <text x="1440" y="770" text-anchor="middle" fill="#991b1b" font-size="10" font-weight="bold">حفظ الوثيقة + الهاش + النص المعتمد</text>
+
+  <!-- 3.2 -> D3 (Write hash directly) -->
+  <path d="M 1100 315 L 1100 750" stroke="#dc2626" stroke-dasharray="3,3" stroke-width="1.8" marker-end="url(#arr-red)"/>
+  <text x="1150" y="420" text-anchor="middle" fill="#475569" font-size="9">سجل بصمة SHA-256</text>
+
+  <!-- D3 -> 3.7 (Search read) -->
+  <path d="M 1100 815 L 1100 1095 L 1420 1095" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr-amber)"/>
+  <rect x="1220" y="1080" width="160" height="22" rx="4" fill="#fef3c7"/>
+  <text x="1300" y="1095" text-anchor="middle" fill="#92400e" font-size="10">استرجاع الوثائق والنصوص</text>
+
+  <!-- 3.7 <-> Trustee & Officer -->
+  <path d="M 1820 1080 L 1700 1080" stroke="#2563eb" stroke-width="2" marker-end="url(#arr-blue)"/>
+  <text x="1760" y="1070" text-anchor="middle" fill="#1e40af" font-size="10">معايير البحث</text>
+
+  <path d="M 1700 1115 L 1820 1115" stroke="#059669" stroke-width="2" marker-end="url(#arr-green)"/>
+  <text x="1760" y="1135" text-anchor="middle" fill="#166534" font-size="10">نتائج البحث والتحميل</text>
+
+  <!-- Explanatory Box (Bottom Left) -->
+  <g transform="translate(100, 750)" filter="url(#shadow)">
+    <rect width="800" height="400" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="800" height="38" rx="14" fill="#0f172a"/>
+    <rect y="18" width="800" height="20" fill="#0f172a"/>
+    <text x="400" y="25" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold">التعليل الأكاديمي والمنهجي لاختيار العملية (3.0) لمخطط المستوى الثاني</text>
+
+    <text x="770" y="70" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">1. مبررات اختيار العملية 3.0 دون غيرها:</text>
+    <text x="770" y="95" text-anchor="end" fill="#475569" font-size="11">• وجود خط أنابيب معالجة هجين (Hybrid Pipeline) يجمع بين خوارزميات OCR الآلية والتدقيق البشري.</text>
+    <text x="770" y="120" text-anchor="end" fill="#475569" font-size="11">• حساسية حجج الأوقاف: النصوص الوقفية تتضمن شروطاً شرعية وحدوداً مالية لا تحتمل نسب خطأ خوارزمية.</text>
+    <text x="770" y="145" text-anchor="end" fill="#475569" font-size="11">• التحقق التشفيري: توظيف بصمة التجزئة SHA-256 للتحقق من عدم تلاعب أي جهة بمحتوى الملف بعد أرشفته.</text>
+
+    <line x1="30" y1="165" x2="770" y2="165" stroke="#cbd5e1" stroke-width="1"/>
+
+    <text x="770" y="190" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">2. تطبيق قاعدة الرقابة الصارمة (Human-in-the-Loop Principle):</text>
+    <text x="770" y="215" text-anchor="end" fill="#dc2626" font-size="11">❌ لا يُسمح لمحرك OCR (العملية 3.4) بالكتابة المباشرة في مخزن الأرشيف D3.</text>
+    <text x="770" y="240" text-anchor="end" fill="#059669" font-size="11">✔ يمر النص المستخرج وجوباً بالعملية 3.5 للمراجعة والمقارنة البصرية المزدوجة قبل اعتماده وحفظه.</text>
+    <text x="770" y="265" text-anchor="end" fill="#475569" font-size="11">• توثيق المعرّف الفريد للموظف الذي قام بالتدقيق وتاريخ الاعتماد لضمان سلاسل التدقيق (Audit Trail).</text>
+
+    <line x1="30" y1="285" x2="770" y2="285" stroke="#cbd5e1" stroke-width="1"/>
+
+    <text x="770" y="310" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">3. اتزان تدفقات المستوى الثاني مع المستوى الأول (Balancing):</text>
+    <text x="770" y="335" text-anchor="end" fill="#475569" font-size="11">• المدخل الخارجي (ملف الوثيقة والتصحيحات) يطابق مدخل العملية 3.0 في المستوى الأول والصفري.</text>
+    <text x="770" y="360" text-anchor="end" fill="#475569" font-size="11">• المخرج الخارجي (نتائج البحث ونصوص الأرشيف) يطابق بدقة مخرجات العملية في المستويات العليا.</text>
+    <text x="770" y="385" text-anchor="end" fill="#15803d" font-size="11">✔ تم الحفاظ على المخزن D3 واستدعاء بيانات D2 فقط كمرجع دون إنشاء مخازن عشوائية خارج النموذج.</text>
+  </g>
+
+  <!-- Bottom Legend -->
+  <g transform="translate(850, 1370)">
+    <rect width="600" height="60" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="300" y="20" text-anchor="middle" fill="#475569" font-size="12" font-weight="bold">دليل الرموز في المستوى الثاني (Level 2)</text>
+    <rect x="40" y="30" width="80" height="20" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="80" y="44" text-anchor="middle" fill="#991b1b" font-size="10">معالجة آلية</text>
+    <rect x="180" y="30" width="100" height="20" rx="4" fill="#d1fae5" stroke="#059669"/>
+    <text x="230" y="44" text-anchor="middle" fill="#065f46" font-size="10">تدقيق بشري</text>
+    <rect x="330" y="30" width="80" height="20" fill="#fef3c7" stroke="#b45309"/>
+    <text x="370" y="44" text-anchor="middle" fill="#92400e" font-size="10">مخزن بيانات</text>
+    <line x1="460" y1="40" x2="510" y2="40" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+    <text x="545" y="44" text-anchor="middle" fill="#334155" font-size="10">تدفق بيانات</text>
+  </g>
+
+</svg>
+    </div>
+    <div class="academic-text">
+      <h3>التعليل الأكاديمي لاختيار العملية 3.0:</h3>
+      <p>خضعت العمليات للتقييم، وتم اختيار العملية 3.0 حصراً لتطبيق المستوى الثاني نظراً لتعقيدها الهندسي غير الخطي؛ فهي تدمج خط أنابيب هجين بين خوارزميات الذكاء الاصطناعي لاستخراج النصوص (OCR) والتدقيق البشري الإلزامي (Human-in-the-Loop)، مع التحقق التشفيري ببصمة SHA-256 لمنع التلاعب بحجج الأوقاف التاريخية.</p>
+    </div>
+  </div>
+
+  <!-- 5. ERD -->
+  <div id="sec-erd" class="diagram-section">
+    <div class="section-header">
+      <h2>شكل (3-5): مخطط الكيانات والعلاقات المنطقي (Logical ERD)</h2>
+      <p style="color:#64748b; font-size:13px;">توصيف الكيانات، المفاتيح الأساسية والأجنبية، وحقول PostGIS وقواعد التطبيع</p>
+    </div>
+    <div class="svg-viewport">
+      
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2800 2000" width="2800" height="2000" style="background-color: #ffffff; font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;">
+  <defs>
+    <filter id="shadow-erd" x="-6%" y="-6%" width="112%" height="114%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Banner -->
+  <rect x="60" y="30" width="2680" height="80" rx="12" fill="#0f172a" />
+  <text x="1400" y="70" text-anchor="middle" fill="#ffffff" font-size="26" font-weight="bold">شكل (3-5): مخطط الكيانات والعلاقات المنطقي (Logical ERD) لقاعدة بيانات المنصة الرقمية لإدارة وحصر الممتلكات الوقفية</text>
+  <text x="1400" y="95" text-anchor="middle" fill="#94a3b8" font-size="14">توصيف الكيانات، المفاتيح الأساسية (PK)، المفاتيح الأجنبية (FK)، الحقول المكانية (PostGIS)، والروابط العلائقية (1:1, 1:N, M:N)</text>
+
+  <!-- ENTITY CARDS -->
+  <!-- 
+    Column 1 (x=100): Auth & Admin
+      - USERS (y=160)
+      - ROLES (y=480)
+      - PERMISSIONS (y=750)
+      - USER_ROLES (y=360)
+      - ROLE_PERMISSIONS (y=620)
+      - AUDIT_LOGS (y=1000)
+
+    Column 2 (x=600): Waqf, Assets & Spatial
+      - WAQFS (y=160)
+      - ASSETS (y=580)
+      - ASSET_LOCATIONS [PostGIS] (y=1050)
+      - ENCROACHMENTS (y=1400)
+
+    Column 3 (x=1150): Documents & Conditions
+      - DOCUMENTS (y=160)
+      - WAQF_CONDITIONS (y=620)
+      - BENEFICIARIES (y=1050)
+      - BENEFICIARY_ENTITLEMENTS (y=1400)
+
+    Column 4 (x=1700): Contracts & Tenants
+      - TENANTS (y=160)
+      - LEASE_CONTRACTS (y=580)
+      - REQUESTS (y=1050)
+      - REQUEST_ATTACHMENTS (y=1450)
+
+    Column 5 (x=2250): Financials
+      - FINANCIAL_TRANSACTIONS (y=580)
+      - PAYMENT_RECEIPTS (y=1050)
+      - FINANCIAL_ACCOUNTS / SUMMARIES (y=1450)
+  -->
+
+  <!-- Helper for Table Card -->
+  <!-- 1. USERS -->
+  <g transform="translate(100, 160)" filter="url(#shadow-erd)">
+    <rect width="400" height="230" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+    <rect width="400" height="34" rx="8" fill="#1e3a8a"/>
+    <rect y="20" width="400" height="14" fill="#1e3a8a"/>
+    <text x="200" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">USERS (المستخدمين)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK  user_id : UUID</text>
+    <text x="20" y="77" fill="#0f172a" font-size="12">    national_id : VARCHAR(20) [UNIQUE]</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">    full_name : VARCHAR(150)</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">    email : VARCHAR(100) [UNIQUE]</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">    phone : VARCHAR(20)</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">    password_hash : VARCHAR(255)</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">    is_active : BOOLEAN</text>
+    <text x="20" y="209" fill="#64748b" font-size="11">    created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 2. USER_ROLES (Junction) -->
+  <g transform="translate(100, 420)" filter="url(#shadow-erd)">
+    <rect width="400" height="110" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+    <rect width="400" height="28" rx="8" fill="#475569"/>
+    <rect y="16" width="400" height="12" fill="#475569"/>
+    <text x="200" y="19" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">USER_ROLES (جدول وسيط M:N)</text>
+    <text x="20" y="50" fill="#dc2626" font-size="11" font-weight="bold">PK,FK1  user_id : UUID</text>
+    <text x="20" y="72" fill="#dc2626" font-size="11" font-weight="bold">PK,FK2  role_id : INT</text>
+    <text x="20" y="94" fill="#64748b" font-size="11">        assigned_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 3. ROLES -->
+  <g transform="translate(100, 560)" filter="url(#shadow-erd)">
+    <rect width="400" height="140" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+    <rect width="400" height="34" rx="8" fill="#1e3a8a"/>
+    <rect y="20" width="400" height="14" fill="#1e3a8a"/>
+    <text x="200" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">ROLES (الأدوار)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK  role_id : SERIAL</text>
+    <text x="20" y="77" fill="#0f172a" font-size="12">    role_name : VARCHAR(50) [UNIQUE]</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">    role_code : VARCHAR(30)</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">    description : TEXT</text>
+  </g>
+
+  <!-- 4. ROLE_PERMISSIONS (Junction) -->
+  <g transform="translate(100, 730)" filter="url(#shadow-erd)">
+    <rect width="400" height="110" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+    <rect width="400" height="28" rx="8" fill="#475569"/>
+    <rect y="16" width="400" height="12" fill="#475569"/>
+    <text x="200" y="19" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="bold">ROLE_PERMISSIONS (جدول وسيط M:N)</text>
+    <text x="20" y="50" fill="#dc2626" font-size="11" font-weight="bold">PK,FK1  role_id : INT</text>
+    <text x="20" y="72" fill="#dc2626" font-size="11" font-weight="bold">PK,FK2  permission_id : INT</text>
+    <text x="20" y="94" fill="#64748b" font-size="11">        granted_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 5. PERMISSIONS -->
+  <g transform="translate(100, 870)" filter="url(#shadow-erd)">
+    <rect width="400" height="140" rx="8" fill="#ffffff" stroke="#334155" stroke-width="2"/>
+    <rect width="400" height="34" rx="8" fill="#1e3a8a"/>
+    <rect y="20" width="400" height="14" fill="#1e3a8a"/>
+    <text x="200" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">PERMISSIONS (الصلاحيات)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK  permission_id : SERIAL</text>
+    <text x="20" y="77" fill="#0f172a" font-size="12">    permission_name : VARCHAR(100)</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">    permission_key : VARCHAR(50)</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">    module_name : VARCHAR(50)</text>
+  </g>
+
+  <!-- 6. AUDIT_LOGS -->
+  <g transform="translate(100, 1040)" filter="url(#shadow-erd)">
+    <rect width="400" height="175" rx="8" fill="#ffffff" stroke="#475569" stroke-width="1.5"/>
+    <rect width="400" height="30" rx="8" fill="#334155"/>
+    <rect y="18" width="400" height="12" fill="#334155"/>
+    <text x="200" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">AUDIT_LOGS (سجل العمليات والرقابة)</text>
+    <text x="20" y="52" fill="#dc2626" font-size="11" font-weight="bold">PK   log_id : BIGSERIAL</text>
+    <text x="20" y="72" fill="#2563eb" font-size="11" font-weight="bold">FK1  user_id : UUID</text>
+    <text x="20" y="92" fill="#0f172a" font-size="11">     action : VARCHAR(50)</text>
+    <text x="20" y="112" fill="#0f172a" font-size="11">     table_name : VARCHAR(50)</text>
+    <text x="20" y="132" fill="#0f172a" font-size="11">     record_id : VARCHAR(50)</text>
+    <text x="20" y="152" fill="#0f172a" font-size="11">     details_json : JSONB</text>
+    <text x="20" y="168" fill="#64748b" font-size="10">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 7. WAQFS -->
+  <g transform="translate(600, 160)" filter="url(#shadow-erd)">
+    <rect width="440" height="270" rx="8" fill="#ffffff" stroke="#0f766e" stroke-width="2.5"/>
+    <rect width="440" height="34" rx="8" fill="#0f766e"/>
+    <rect y="20" width="440" height="14" fill="#0f766e"/>
+    <text x="220" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">WAQFS (الأوقاف)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   waqf_id : UUID</text>
+    <text x="20" y="77" fill="#0f172a" font-size="12">     waqf_code : VARCHAR(30) [UNIQUE]</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">     waqf_name : VARCHAR(200)</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">     waqif_name : VARCHAR(150)</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     waqf_type : VARCHAR(50) [خيري/أهلي/مشترك]</text>
+    <text x="20" y="165" fill="#2563eb" font-size="12" font-weight="bold">FK1  trustee_user_id : UUID (الناظر المعين)</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     establishment_date : DATE</text>
+    <text x="20" y="209" fill="#0f172a" font-size="12">     status : VARCHAR(30) [نشط/مجمد/معلق]</text>
+    <text x="20" y="231" fill="#0f172a" font-size="12">     description : TEXT</text>
+    <text x="20" y="253" fill="#64748b" font-size="11">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 8. ASSETS -->
+  <g transform="translate(600, 480)" filter="url(#shadow-erd)">
+    <rect width="440" height="270" rx="8" fill="#ffffff" stroke="#0f766e" stroke-width="2.5"/>
+    <rect width="440" height="34" rx="8" fill="#0f766e"/>
+    <rect y="20" width="440" height="14" fill="#0f766e"/>
+    <text x="220" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">ASSETS (الأصول والممتلكات الوقفية)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   asset_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  waqf_id : UUID (الوقف التابع له)</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">     asset_code : VARCHAR(50) [UNIQUE]</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">     asset_name : VARCHAR(150)</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     asset_type : VARCHAR(50) [عقار/أرض/محل/مزرعة]</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     current_status : VARCHAR(50) [شاغر/مؤجر/معتدى عليه]</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     estimated_value : NUMERIC(14,2)</text>
+    <text x="20" y="209" fill="#0f172a" font-size="12">     cadastral_number : VARCHAR(50) (رقم المخطط)</text>
+    <text x="20" y="231" fill="#0f172a" font-size="12">     description : TEXT</text>
+    <text x="20" y="253" fill="#64748b" font-size="11">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 9. ASSET_LOCATIONS [Spatial PostGIS] -->
+  <g transform="translate(600, 800)" filter="url(#shadow-erd)">
+    <rect width="440" height="240" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2.5"/>
+    <rect width="440" height="34" rx="8" fill="#047857"/>
+    <rect y="20" width="440" height="14" fill="#047857"/>
+    <text x="220" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">ASSET_LOCATIONS (بيانات PostGIS المكانية)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   location_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  asset_id : UUID [1:1 Unique]</text>
+    <text x="20" y="99" fill="#047857" font-size="12" font-weight="bold">     geom_point : GEOMETRY(Point, 4326)</text>
+    <text x="20" y="121" fill="#047857" font-size="12" font-weight="bold">     geom_boundary : GEOMETRY(Polygon, 4326)</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     calculated_area_sqm : NUMERIC(10,2)</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     city : VARCHAR(50)</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     district : VARCHAR(50)</text>
+    <text x="20" y="209" fill="#0f172a" font-size="12">     address_details : TEXT</text>
+    <text x="20" y="228" fill="#64748b" font-size="11">     updated_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 10. ENCROACHMENTS (التعديات) -->
+  <g transform="translate(600, 1080)" filter="url(#shadow-erd)">
+    <rect width="440" height="200" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="1.5"/>
+    <rect width="440" height="30" rx="8" fill="#b91c1c"/>
+    <rect y="18" width="440" height="12" fill="#b91c1c"/>
+    <text x="220" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">ENCROACHMENTS (سجل التعديات المكانية)</text>
+    <text x="20" y="52" fill="#dc2626" font-size="11" font-weight="bold">PK   encroachment_id : UUID</text>
+    <text x="20" y="72" fill="#2563eb" font-size="11" font-weight="bold">FK1  asset_id : UUID</text>
+    <text x="20" y="92" fill="#0f172a" font-size="11">     incident_date : DATE</text>
+    <text x="20" y="112" fill="#0f172a" font-size="11">     encroacher_info : VARCHAR(150)</text>
+    <text x="20" y="132" fill="#0f172a" font-size="11">     encroached_area_sqm : NUMERIC(10,2)</text>
+    <text x="20" y="152" fill="#0f172a" font-size="11">     legal_status : VARCHAR(50)</text>
+    <text x="20" y="172" fill="#0f172a" font-size="11">     action_taken : TEXT</text>
+    <text x="20" y="190" fill="#64748b" font-size="10">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 11. DOCUMENTS (الوثائق والأرشفة) -->
+  <g transform="translate(1150, 160)" filter="url(#shadow-erd)">
+    <rect width="460" height="340" rx="8" fill="#ffffff" stroke="#7c2d12" stroke-width="2.5"/>
+    <rect width="460" height="34" rx="8" fill="#7c2d12"/>
+    <rect y="20" width="460" height="14" fill="#7c2d12"/>
+    <text x="230" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">DOCUMENTS (الوثائق والأرشفة مع OCR)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   document_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  waqf_id : UUID [NULLABLE]</text>
+    <text x="20" y="99" fill="#2563eb" font-size="12" font-weight="bold">FK2  asset_id : UUID [NULLABLE]</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">     document_title : VARCHAR(150)</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     document_type : VARCHAR(50) [حجة وقف/صك/عقد]</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     file_path : VARCHAR(255)</text>
+    <text x="20" y="187" fill="#7c2d12" font-size="12" font-weight="bold">     file_hash_sha256 : CHAR(64) [بصمة التحقق]</text>
+    <text x="20" y="209" fill="#0f172a" font-size="12">     ocr_raw_text : TEXT [استخراج OCR الأولي]</text>
+    <text x="20" y="231" fill="#0f172a" font-size="12">     ocr_corrected_text : TEXT [النص المصحح والمعتمد]</text>
+    <text x="20" y="253" fill="#0f172a" font-size="12">     is_verified : BOOLEAN [حالة التدقيق البشري]</text>
+    <text x="20" y="275" fill="#2563eb" font-size="12" font-weight="bold">FK3  verified_by_user_id : UUID</text>
+    <text x="20" y="297" fill="#0f172a" font-size="12">     verification_date : TIMESTAMP</text>
+    <text x="20" y="319" fill="#64748b" font-size="11">     uploaded_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 12. WAQF_CONDITIONS (شروط الواقف) -->
+  <g transform="translate(1150, 540)" filter="url(#shadow-erd)">
+    <rect width="460" height="230" rx="8" fill="#ffffff" stroke="#4338ca" stroke-width="2.5"/>
+    <rect width="460" height="34" rx="8" fill="#4338ca"/>
+    <rect y="20" width="460" height="14" fill="#4338ca"/>
+    <text x="230" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">WAQF_CONDITIONS (شروط الواقف وأوجه الصرف)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   condition_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  waqf_id : UUID</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">     condition_text : TEXT (نص شرط الواقف)</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">     expense_category : VARCHAR(50) [عمارة/أهل/فقراء]</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     allocation_percentage : NUMERIC(5,2)</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     distribution_priority : INT</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     is_active : BOOLEAN</text>
+    <text x="20" y="209" fill="#64748b" font-size="11">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 13. BENEFICIARIES (المستفيدين) -->
+  <g transform="translate(1150, 810)" filter="url(#shadow-erd)">
+    <rect width="460" height="250" rx="8" fill="#ffffff" stroke="#4338ca" stroke-width="2.5"/>
+    <rect width="460" height="34" rx="8" fill="#4338ca"/>
+    <rect y="20" width="460" height="14" fill="#4338ca"/>
+    <text x="230" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">BENEFICIARIES (المستفيدين)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   beneficiary_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  user_id : UUID [NULLABLE / ارتباط الحساب]</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">     national_id : VARCHAR(20) [UNIQUE]</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">     full_name : VARCHAR(150)</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     relationship_to_waqif : VARCHAR(50)</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     social_status : VARCHAR(50)</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     eligibility_status : VARCHAR(50) [مستحق/غير مستحق]</text>
+    <text x="20" y="209" fill="#0f172a" font-size="12">     phone : VARCHAR(20)</text>
+    <text x="20" y="231" fill="#64748b" font-size="11">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 14. BENEFICIARY_ENTITLEMENTS (الاستحقاقات والحصص) -->
+  <g transform="translate(1150, 1100)" filter="url(#shadow-erd)">
+    <rect width="460" height="230" rx="8" fill="#ffffff" stroke="#4338ca" stroke-width="2"/>
+    <rect width="460" height="30" rx="8" fill="#4338ca"/>
+    <rect y="18" width="460" height="12" fill="#4338ca"/>
+    <text x="230" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">BENEFICIARY_ENTITLEMENTS (كشوف الحصص والاستحقاق)</text>
+    <text x="20" y="52" fill="#dc2626" font-size="11" font-weight="bold">PK   entitlement_id : UUID</text>
+    <text x="20" y="72" fill="#2563eb" font-size="11" font-weight="bold">FK1  beneficiary_id : UUID</text>
+    <text x="20" y="92" fill="#2563eb" font-size="11" font-weight="bold">FK2  condition_id : UUID</text>
+    <text x="20" y="112" fill="#2563eb" font-size="11" font-weight="bold">FK3  waqf_id : UUID</text>
+    <text x="20" y="132" fill="#0f172a" font-size="11">     entitlement_share : NUMERIC(8,4)</text>
+    <text x="20" y="152" fill="#0f172a" font-size="11">     calculated_amount : NUMERIC(12,2)</text>
+    <text x="20" y="172" fill="#0f172a" font-size="11">     distribution_cycle : VARCHAR(30) [سنوي/شهري]</text>
+    <text x="20" y="192" fill="#0f172a" font-size="11">     status : VARCHAR(30) [معتمد/مسجل/مستحق]</text>
+    <text x="20" y="212" fill="#64748b" font-size="10">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 15. TENANTS (المستأجرين) -->
+  <g transform="translate(1700, 160)" filter="url(#shadow-erd)">
+    <rect width="460" height="230" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2.5"/>
+    <rect width="460" height="34" rx="8" fill="#047857"/>
+    <rect y="20" width="460" height="14" fill="#047857"/>
+    <text x="230" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">TENANTS (المستأجرين)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   tenant_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  user_id : UUID [NULLABLE / ارتباط الحساب]</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">     id_or_cr_number : VARCHAR(30) [هوية/سجل تجاري]</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">     tenant_name : VARCHAR(150)</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     tenant_type : VARCHAR(30) [فرد/شركة/مؤسسة]</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     phone : VARCHAR(20)</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     email : VARCHAR(100)</text>
+    <text x="20" y="209" fill="#64748b" font-size="11">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 16. LEASE_CONTRACTS (عقود الإيجار) -->
+  <g transform="translate(1700, 430)" filter="url(#shadow-erd)">
+    <rect width="460" height="320" rx="8" fill="#ffffff" stroke="#047857" stroke-width="2.5"/>
+    <rect width="460" height="34" rx="8" fill="#047857"/>
+    <rect y="20" width="460" height="14" fill="#047857"/>
+    <text x="230" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">LEASE_CONTRACTS (عقود الإيجار)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   contract_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  asset_id : UUID (الأصل المؤجر)</text>
+    <text x="20" y="99" fill="#2563eb" font-size="12" font-weight="bold">FK2  tenant_id : UUID (المستأجر)</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">     contract_number : VARCHAR(50) [UNIQUE]</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     start_date : DATE</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     end_date : DATE</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     annual_rent_amount : NUMERIC(12,2)</text>
+    <text x="20" y="209" fill="#0f172a" font-size="12">     payment_interval : VARCHAR(30) [شهري/ربع سنوي/سنوي]</text>
+    <text x="20" y="231" fill="#0f172a" font-size="12">     contract_status : VARCHAR(30) [نشط/منتهي/مفسوخ]</text>
+    <text x="20" y="253" fill="#0f172a" font-size="12">     security_deposit : NUMERIC(10,2)</text>
+    <text x="20" y="275" fill="#0f172a" font-size="12">     special_terms : TEXT</text>
+    <text x="20" y="297" fill="#64748b" font-size="11">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 17. REQUESTS (الطلبات والشكاوى والبلاغات) -->
+  <g transform="translate(1700, 790)" filter="url(#shadow-erd)">
+    <rect width="460" height="290" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2.5"/>
+    <rect width="460" height="34" rx="8" fill="#0284c7"/>
+    <rect y="20" width="460" height="14" fill="#0284c7"/>
+    <text x="230" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">REQUESTS (الطلبات والبلاغات والشكاوى)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   request_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  user_id : UUID (مقدم الطلب)</text>
+    <text x="20" y="99" fill="#2563eb" font-size="12" font-weight="bold">FK2  waqf_id : UUID [NULLABLE]</text>
+    <text x="20" y="121" fill="#2563eb" font-size="12" font-weight="bold">FK3  asset_id : UUID [NULLABLE]</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     request_type : VARCHAR(50) [استفادة/استئجار/صيانة/بلاغ]</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     request_title : VARCHAR(150)</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     description : TEXT</text>
+    <text x="20" y="209" fill="#0f172a" font-size="12">     status : VARCHAR(30) [قيد المراجعة/مقبول/مرفوض/مكتمل]</text>
+    <text x="20" y="231" fill="#2563eb" font-size="12" font-weight="bold">FK4  assigned_officer_id : UUID [NULLABLE]</text>
+    <text x="20" y="253" fill="#0f172a" font-size="12">     rejection_reason : TEXT</text>
+    <text x="20" y="273" fill="#64748b" font-size="11">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 18. REQUEST_ATTACHMENTS -->
+  <g transform="translate(1700, 1120)" filter="url(#shadow-erd)">
+    <rect width="460" height="180" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+    <rect width="460" height="30" rx="8" fill="#0284c7"/>
+    <rect y="18" width="460" height="12" fill="#0284c7"/>
+    <text x="230" y="20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="bold">REQUEST_ATTACHMENTS (مرفقات الطلبات)</text>
+    <text x="20" y="52" fill="#dc2626" font-size="11" font-weight="bold">PK   attachment_id : UUID</text>
+    <text x="20" y="72" fill="#2563eb" font-size="11" font-weight="bold">FK1  request_id : UUID</text>
+    <text x="20" y="92" fill="#0f172a" font-size="11">     file_name : VARCHAR(200)</text>
+    <text x="20" y="112" fill="#0f172a" font-size="11">     file_path : VARCHAR(255)</text>
+    <text x="20" y="132" fill="#0f172a" font-size="11">     file_size_kb : INT</text>
+    <text x="20" y="152" fill="#0f172a" font-size="11">     mime_type : VARCHAR(50)</text>
+    <text x="20" y="170" fill="#64748b" font-size="10">     uploaded_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 19. FINANCIAL_TRANSACTIONS (المعاملات المالية) -->
+  <g transform="translate(2250, 430)" filter="url(#shadow-erd)">
+    <rect width="450" height="310" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="2.5"/>
+    <rect width="450" height="34" rx="8" fill="#b45309"/>
+    <rect y="20" width="450" height="14" fill="#b45309"/>
+    <text x="225" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">FINANCIAL_TRANSACTIONS (المعاملات المالية)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   transaction_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  waqf_id : UUID (الوقف المرتبط)</text>
+    <text x="20" y="99" fill="#2563eb" font-size="12" font-weight="bold">FK2  asset_id : UUID [NULLABLE]</text>
+    <text x="20" y="121" fill="#2563eb" font-size="12" font-weight="bold">FK3  contract_id : UUID [NULLABLE / عقد الإيجار]</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     transaction_type : VARCHAR(30) [إيراد إيجار/صيانة/مصروف]</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     amount : NUMERIC(12,2)</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     payment_method : VARCHAR(50) [نقدي/شيك/تحويل مسجل]</text>
+    <text x="20" y="209" fill="#0f172a" font-size="12">     reference_number : VARCHAR(50)</text>
+    <text x="20" y="231" fill="#0f172a" font-size="12">     transaction_date : DATE</text>
+    <text x="20" y="253" fill="#2563eb" font-size="12" font-weight="bold">FK4  recorded_by_user_id : UUID</text>
+    <text x="20" y="275" fill="#0f172a" font-size="12">     notes : TEXT</text>
+    <text x="20" y="297" fill="#64748b" font-size="11">     created_at : TIMESTAMP</text>
+  </g>
+
+  <!-- 20. PAYMENT_RECEIPTS (سندات القبض الإلكترونية) -->
+  <g transform="translate(2250, 780)" filter="url(#shadow-erd)">
+    <rect width="450" height="260" rx="8" fill="#ffffff" stroke="#b45309" stroke-width="2.5"/>
+    <rect width="450" height="34" rx="8" fill="#b45309"/>
+    <rect y="20" width="450" height="14" fill="#b45309"/>
+    <text x="225" y="22" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">PAYMENT_RECEIPTS (سندات القبض الإلكترونية)</text>
+    <text x="20" y="55" fill="#dc2626" font-size="12" font-weight="bold">PK   receipt_id : UUID</text>
+    <text x="20" y="77" fill="#2563eb" font-size="12" font-weight="bold">FK1  transaction_id : UUID [1:1 Unique]</text>
+    <text x="20" y="99" fill="#0f172a" font-size="12">     receipt_number : VARCHAR(50) [UNIQUE]</text>
+    <text x="20" y="121" fill="#0f172a" font-size="12">     payer_name : VARCHAR(150)</text>
+    <text x="20" y="143" fill="#0f172a" font-size="12">     amount : NUMERIC(12,2)</text>
+    <text x="20" y="165" fill="#0f172a" font-size="12">     amount_in_words : VARCHAR(255)</text>
+    <text x="20" y="187" fill="#0f172a" font-size="12">     for_reason : TEXT</text>
+    <text x="20" y="209" fill="#b45309" font-size="12" font-weight="bold">     receipt_hash_qr : VARCHAR(255) [رمز التحقق QR]</text>
+    <text x="20" y="231" fill="#2563eb" font-size="12" font-weight="bold">FK2  issued_by_user_id : UUID</text>
+    <text x="20" y="250" fill="#64748b" font-size="11">     issued_at : TIMESTAMP</text>
+  </g>
+
+  <!-- ================= RELATIONSHIP CONNECTORS & CARDINALITY ================= -->
+  <!-- Users -> User_Roles (1:N) -->
+  <path d="M 300 390 L 300 420" stroke="#334155" stroke-width="2"/>
+  <text x="310" y="405" font-size="11" fill="#475569">1:N</text>
+
+  <!-- Roles -> User_Roles (1:N) -->
+  <path d="M 300 560 L 300 530" stroke="#334155" stroke-width="2"/>
+  <text x="310" y="550" font-size="11" fill="#475569">1:N</text>
+
+  <!-- Roles -> Role_Permissions (1:N) -->
+  <path d="M 300 700 L 300 730" stroke="#334155" stroke-width="2"/>
+  <text x="310" y="715" font-size="11" fill="#475569">1:N</text>
+
+  <!-- Permissions -> Role_Permissions (1:N) -->
+  <path d="M 300 870 L 300 840" stroke="#334155" stroke-width="2"/>
+  <text x="310" y="860" font-size="11" fill="#475569">1:N</text>
+
+  <!-- Waqfs -> Assets (1:N) -->
+  <path d="M 820 430 L 820 480" stroke="#0f766e" stroke-width="2.5"/>
+  <circle cx="820" cy="430" r="4" fill="#0f766e"/>
+  <text x="835" y="460" font-size="13" font-weight="bold" fill="#0f766e">1:N</text>
+
+  <!-- Assets -> Asset_Locations (1:1) -->
+  <path d="M 820 750 L 820 800" stroke="#047857" stroke-width="2.5"/>
+  <circle cx="820" cy="750" r="4" fill="#047857"/>
+  <text x="835" y="780" font-size="13" font-weight="bold" fill="#047857">1:1 (Unique)</text>
+
+  <!-- Assets -> Encroachments (1:N) -->
+  <path d="M 820 1040 L 820 1080" stroke="#b91c1c" stroke-width="2"/>
+  <text x="835" y="1065" font-size="12" fill="#b91c1c">1:N</text>
+
+  <!-- Waqfs -> Waqf_Conditions (1:N) -->
+  <path d="M 1040 290 L 1150 560" stroke="#4338ca" stroke-width="2" fill="none"/>
+  <text x="1090" y="420" font-size="12" font-weight="bold" fill="#4338ca">1:N</text>
+
+  <!-- Waqfs -> Documents (1:N) -->
+  <path d="M 1040 200 L 1150 200" stroke="#7c2d12" stroke-width="2"/>
+  <text x="1095" y="190" font-size="12" font-weight="bold" fill="#7c2d12">1:N</text>
+
+  <!-- Assets -> Documents (1:N) -->
+  <path d="M 1040 520 L 1150 320" stroke="#7c2d12" stroke-width="2" fill="none"/>
+  <text x="1095" y="440" font-size="12" font-weight="bold" fill="#7c2d12">1:N</text>
+
+  <!-- Conditions -> Beneficiary_Entitlements (1:N) -->
+  <path d="M 1380 770 L 1380 1100" stroke="#4338ca" stroke-width="2"/>
+  <text x="1395" y="930" font-size="12" font-weight="bold" fill="#4338ca">1:N</text>
+
+  <!-- Beneficiaries -> Beneficiary_Entitlements (1:N) -->
+  <path d="M 1300 1060 L 1300 1100" stroke="#4338ca" stroke-width="2"/>
+  <text x="1310" y="1085" font-size="11" fill="#4338ca">1:N</text>
+
+  <!-- Assets -> Lease_Contracts (1:N) -->
+  <path d="M 1040 600 L 1700 600" stroke="#047857" stroke-width="2.5"/>
+  <text x="1370" y="590" font-size="13" font-weight="bold" fill="#047857">1:N (عقود الأصل عبر الزمن)</text>
+
+  <!-- Tenants -> Lease_Contracts (1:N) -->
+  <path d="M 1930 390 L 1930 430" stroke="#047857" stroke-width="2.5"/>
+  <text x="1945" y="415" font-size="12" font-weight="bold" fill="#047857">1:N</text>
+
+  <!-- Lease_Contracts -> Financial_Transactions (1:N) -->
+  <path d="M 2160 590 L 2250 590" stroke="#b45309" stroke-width="2.5"/>
+  <text x="2190" y="580" font-size="12" font-weight="bold" fill="#b45309">1:N</text>
+
+  <!-- Financial_Transactions -> Payment_Receipts (1:1) -->
+  <path d="M 2470 740 L 2470 780" stroke="#b45309" stroke-width="2.5"/>
+  <text x="2485" y="765" font-size="12" font-weight="bold" fill="#b45309">1:1</text>
+
+  <!-- Requests -> Request_Attachments (1:N) -->
+  <path d="M 1930 1080 L 1930 1120" stroke="#0284c7" stroke-width="2"/>
+  <text x="1945" y="1105" font-size="12" font-weight="bold" fill="#0284c7">1:N</text>
+
+  <!-- Explanatory Box (Bottom Center) -->
+  <g transform="translate(100, 1650)" filter="url(#shadow-erd)">
+    <rect width="2600" height="280" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="2600" height="36" rx="12" fill="#0f172a"/>
+    <rect y="18" width="2600" height="18" fill="#0f172a"/>
+    <text x="1300" y="24" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">قواعد وضوابط التصميم الهندسي لقاعدة بيانات المنصة الوقفية (PostgreSQL &amp; PostGIS)</text>
+
+    <!-- 3 columns of notes -->
+    <!-- Col 1 -->
+    <g transform="translate(50, 50)">
+      <text x="750" y="25" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">1. تطبيع البيانات ومنع التكرار (Normalization):</text>
+      <text x="750" y="50" text-anchor="end" fill="#475569" font-size="11">• تطبيع كامل حتى المستوى الطبيعي الثالث (3NF) لضمان اتساق البيانات وعدم حدوث شذوذ بالتحديث أو الحذف.</text>
+      <text x="750" y="75" text-anchor="end" fill="#475569" font-size="11">• حل العلاقات متعدد إلى متعدد (M:N) عبر جداول وسيطة مستقلة: USER_ROLES و ROLE_PERMISSIONS.</text>
+      <text x="750" y="100" text-anchor="end" fill="#475569" font-size="11">• فصل الكيانات الوصفية عن الكيانات المعاملاتية، وفصل ملفات المرفقات في كيان مستقل REQUEST_ATTACHMENTS.</text>
+      <text x="750" y="125" text-anchor="end" fill="#475569" font-size="11">• تمييز المفاتيح الأساسية UUID لتوفير أمان وحماية عالية وتوزيع آمن للبيانات عبر الأنظمة.</text>
+    </g>
+
+    <!-- Col 2 -->
+    <g transform="translate(900, 50)">
+      <text x="750" y="25" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">2. البيانات المكانية ونظام المعلومات الجغرافي (PostGIS):</text>
+      <text x="750" y="50" text-anchor="end" fill="#475569" font-size="11">• تخصيص جدول مستقل ASSET_LOCATIONS يرتبط بعلاقة 1:1 صارمة مع جدول الأصول ASSETS.</text>
+      <text x="750" y="75" text-anchor="end" fill="#047857" font-size="11">• تخزين النقطة المكانية عبر نوع Point بنظام الإسناد WGS 84 (SRID: 4326) وتخزين الحدود عبر Polygon.</text>
+      <text x="750" y="100" text-anchor="end" fill="#475569" font-size="11">• احتساب المساحة وحفظها كقيمة معيارية للمطابقة، مع جداول توثيق التعديات المكانية ENCROACHMENTS.</text>
+      <text x="750" y="125" text-anchor="end" fill="#b91c1c" font-size="11">• قيد قانوني معتمد: إحداثيات ومضلعات PostGIS أداة إدارية فنية مساعدة ولا تعد بديلاً عن حجة الملكية.</text>
+    </g>
+
+    <!-- Col 3 -->
+    <g transform="translate(1750, 50)">
+      <text x="750" y="25" text-anchor="end" fill="#0f172a" font-size="13" font-weight="bold">3. النزاهة التشفيرية والأرشفة والرقابة المالية:</text>
+      <text x="750" y="50" text-anchor="end" fill="#7c2d12" font-size="11">• حقل file_hash_sha256 في جدول DOCUMENTS يضمن سلامة الوثيقة التاريخية وحجج الوقف من أي تعديل.</text>
+      <text x="750" y="75" text-anchor="end" fill="#475569" font-size="11">• تخزين نص OCR الخام والنص المدقق بشرياً مع حفظ معرف المستخدم المدقق وتاريخ الاعتماد الدقيق.</text>
+      <text x="750" y="100" text-anchor="end" fill="#b45309" font-size="11">• ارتباط كل سند قبض PAYMENT_RECEIPT بمعاملة مالية 1:1 مع بصمة تحقق مشفرة لرمز الاستجابة السريعة (QR).</text>
+      <text x="750" y="125" text-anchor="end" fill="#475569" font-size="11">• جدول AUDIT_LOGS يسجل كل عملية إضافة أو تعديل أو حذف لضمان الشفافية والمساءلة القضائية والوقفية.</text>
+    </g>
+  </g>
+
+</svg>
+    </div>
+    <div class="academic-text">
+      <h3>الشرح الأكاديمي لمخطط قاعدة البيانات:</h3>
+      <p>صُممت قاعدة البيانات في PostgreSQL مع ملحق PostGIS وفق معايير التطبيع الثالثة (3NF). تضمن المخطط فصل الكيانات المكانية ASSET_LOCATIONS بعلاقة 1:1 صارمة مع الأصول لتخزين النقاط والمضلعات وحساب المساحة بـ ST_Area، مع حل علاقات متعدد إلى متعدد عبر جداول وسيطة مستقلة، وتشفير سندات القبض برمز QR.</p>
+    </div>
+  </div>
+
+  <!-- 6. MATRIX -->
+  <div id="sec-matrix" class="diagram-section">
+    <div class="section-header">
+      <h2>مصفوفة الاتزان الهندسي والمراجعة الشاملة</h2>
+      <p style="color:#64748b; font-size:13px;">مطابقة وتوافق المخططات للاعتماد النهائي في الفصل الثالث</p>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>عنصر المراجعة والتدقيق</th>
+          <th>النتيجة</th>
+          <th>الملاحظة والتوجيه المعتمد</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>تطابق الجهات الخارجية بين المستويات</td>
+          <td><span class="check-tag">متوافق 100%</span></td>
+          <td>خمس جهات ثابتة: مدير النظام، موظف الأوقاف، الناظر، المستفيد، المستأجر.</td>
+        </tr>
+        <tr>
+          <td>تطابق العمليات الرئيسية</td>
+          <td><span class="check-tag">متوافق 100%</span></td>
+          <td>الالتزام التام بالعمليات السبع المعتمدة (1.0 إلى 7.0) في كافة المخططات.</td>
+        </tr>
+        <tr>
+          <td>منع التدفق المباشر بين الكيانات والمخازن</td>
+          <td><span class="check-tag">متوافق 100%</span></td>
+          <td>كافة تدفقات البيانات تمر حصراً عبر العمليات الفرعية المعنية.</td>
+        </tr>
+        <tr>
+          <td>التدقيق البشري الإلزامي في OCR</td>
+          <td><span class="check-tag">متوافق 100%</span></td>
+          <td>لا يُعتمد استخراج OCR تلقائياً لحفظه في D3 إلا بعد المراجعة البشرية (3.5).</td>
+        </tr>
+        <tr>
+          <td>نظم المعلومات الجغرافية PostGIS</td>
+          <td><span class="check-tag">متوافق 100%</span></td>
+          <td>دعم كامل لإحداثيات Point ومضلعات Polygon واحتساب المساحات آلياً.</td>
+        </tr>
+        <tr>
+          <td>النزاهة التشفيرية ببصمة SHA-256</td>
+          <td><span class="check-tag">متوافق 100%</span></td>
+          <td>تضمين حقل البصمة في جدول DOCUMENTS ومخطط DFD Level 2.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</body>
+</html>
